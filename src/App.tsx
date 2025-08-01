@@ -5,88 +5,203 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        {/* Cal.com scripts for scheduling */}
-        <script type="text/javascript">
-          {`
-            (function (C, A, L) { 
-              let p = function (a, ar) { a.q.push(ar); }; 
-              let d = C.document; 
-              C.Cal = C.Cal || function () { 
-                let cal = C.Cal; 
-                let ar = arguments; 
-                if (!cal.loaded) { 
-                  cal.ns = {}; 
-                  cal.q = cal.q || []; 
-                  d.head.appendChild(d.createElement("script")).src = A; 
-                  cal.loaded = true; 
-                } 
-                if (ar[0] === L) { 
-                  const api = function () { p(api, arguments); }; 
-                  const namespace = ar[1]; 
-                  api.q = api.q || []; 
-                  if(typeof namespace === "string"){
-                    cal.ns[namespace] = cal.ns[namespace] || api;
-                    p(cal.ns[namespace], ar);
-                    p(cal, ["initNamespace", namespace]);
-                  } else p(cal, ar); 
-                  return;
-                } 
-                p(cal, ar); 
-              }; 
-            })(window, "https://app.cal.com/embed/embed.js", "init");
-            Cal("init", "gutter-cleaning", {origin:"https://app.cal.com"});
-            Cal.ns["gutter-cleaning"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-          `}
-        </script>
-        <script type="text/javascript">
-          {`
-            (function (C, A, L) { 
-              let p = function (a, ar) { a.q.push(ar); }; 
-              let d = C.document; 
-              C.Cal = C.Cal || function () { 
-                let cal = C.Cal; 
-                let ar = arguments; 
-                if (!cal.loaded) { 
-                  cal.ns = {}; 
-                  cal.q = cal.q || []; 
-                  d.head.appendChild(d.createElement("script")).src = A; 
-                  cal.loaded = true; 
-                } 
-                if (ar[0] === L) { 
-                  const api = function () { p(api, arguments); }; 
-                  const namespace = ar[1]; 
-                  api.q = api.q || []; 
-                  if(typeof namespace === "string"){
-                    cal.ns[namespace] = cal.ns[namespace] || api;
-                    p(cal.ns[namespace], ar);
-                    p(cal, ["initNamespace", namespace]);
-                  } else p(cal, ar); 
-                  return;
-                } 
-                p(cal, ar); 
-              }; 
-            })(window, "https://app.cal.com/embed/embed.js", "init");
-            Cal("init", "lawn-mow", {origin:"https://app.cal.com"});
-            Cal.ns["lawn-mow"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-          `}
-        </script>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+// Chat widget component
+const ChatWidget = () => {
+  useEffect(() => {
+    // Initialize the chat widget when component mounts
+    const initChatWidget = () => {
+      const webhookUrl = 'https://teaguewins.app.n8n.cloud/webhook/091748d5-ef40-4a83-a1d9-c1a5eb8f0089/chat';
+      const suggestedMessages = ["What services do you offer?", "Can I schedule a call?", "Tell me about pricing."];
+      let sessionId = localStorage.getItem('chatSession') || (() => {
+        const id = Math.random().toString(36).substr(2, 10);
+        localStorage.setItem('chatSession', id);
+        return id;
+      })();
+      let typingIndicator: HTMLElement | null = null;
+
+      function appendMessage(text: string, type: string) {
+        const box = document.getElementById('chatBox');
+        if (!box) return;
+        const div = document.createElement('div');
+        div.className = `message ${type}`;
+        div.textContent = text;
+        box.appendChild(div);
+        box.scrollTop = box.scrollHeight;
+      }
+
+      function showTyping() {
+        const box = document.getElementById('chatBox');
+        if (!box) return;
+        typingIndicator = document.createElement('div');
+        typingIndicator.className = 'message bot';
+        typingIndicator.textContent = '…';
+        box.appendChild(typingIndicator);
+        box.scrollTop = box.scrollHeight;
+      }
+
+      function hideTyping() {
+        if (typingIndicator) {
+          typingIndicator.remove();
+          typingIndicator = null;
+        }
+      }
+
+      function hideSuggestions() {
+        const row = document.querySelector('.suggestionRow');
+        if (row) row.remove();
+      }
+
+      function showSuggestions() {
+        const box = document.getElementById('chatBox');
+        if (!box) return;
+        const row = document.createElement('div');
+        row.className = 'suggestionRow';
+        suggestedMessages.forEach(text => {
+          const btn = document.createElement('button');
+          btn.className = 'suggestionBubble';
+          btn.textContent = text;
+          btn.onclick = () => {
+            hideSuggestions();
+            sendMessage(text);
+          };
+          row.appendChild(btn);
+        });
+        box.appendChild(row);
+      }
+
+      function hideForm() {
+        const preChatForm = document.getElementById('preChatForm');
+        const chatBox = document.getElementById('chatBox');
+        const inputBar = document.getElementById('inputBar');
+        if (preChatForm) preChatForm.style.display = 'none';
+        if (chatBox) chatBox.style.display = 'block';
+        if (inputBar) inputBar.style.display = 'flex';
+      }
+
+      async function startChat() {
+        const name = document.getElementById('inputName') as HTMLInputElement | null;
+        const email = document.getElementById('inputEmail') as HTMLInputElement | null;
+        const phone = document.getElementById('inputPhone') as HTMLInputElement | null;
+        
+        if (!name || !email || !phone) return;
+        
+        let ok = true;
+        [name, email, phone].forEach(el => {
+          if (el) {
+            el.classList.remove('invalid');
+            if (!el.value.trim()) {
+              el.classList.add('invalid');
+              ok = false;
+            }
+          }
+        });
+        
+        if (!ok) return;
+        
+        const intro = `User joined:\nName: ${name.value.trim()}\nEmail: ${email.value.trim()}\nPhone: ${phone.value.trim()}`;
+        hideForm();
+        appendMessage(intro, 'user');
+        showTyping();
+        
+        try {
+          const res = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chatInput: intro,
+              sessionId,
+              timestamp: new Date().toISOString()
+            })
+          });
+          const data = await res.json();
+          hideTyping();
+          appendMessage(data.reply || '👾 Welcome! How can I assist you today?', 'bot');
+          showSuggestions();
+        } catch {
+          hideTyping();
+          appendMessage('🔴 Connection lost. Retry?', 'bot');
+        }
+      }
+
+      async function sendMessage(optional = '') {
+        const input = document.getElementById('chatInput') as HTMLInputElement | null;
+        if (!input) return;
+        
+        const msg = optional || input.value.trim();
+        if (!msg) return;
+        
+        if (!optional) hideSuggestions();
+        appendMessage(msg, 'user');
+        if (!optional) input.value = '';
+        showTyping();
+        
+        try {
+          const res = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chatInput: msg,
+              sessionId,
+              timestamp: new Date().toISOString()
+            })
+          });
+          const data = await res.json();
+          hideTyping();
+          appendMessage(data.reply || '⚠️ No response received.', 'bot');
+        } catch {
+          hideTyping();
+          appendMessage('🔴 Connection lost. Retry?', 'bot');
+        }
+      }
+
+      // Add event listeners
+      const chatToggle = document.getElementById('chatToggle');
+      const chatInput = document.getElementById('chatInput');
       
-      {/* =====  GREEN MINIMAL WIDGET (WHITE BACKGROUND)  ===== */}
+      if (chatToggle) {
+        chatToggle.addEventListener('click', () => {
+          const w = document.getElementById('chatWidget');
+          if (!w) return;
+          const open = w.classList.toggle('open');
+          if (!open) {
+            setTimeout(() => {
+              if (w) w.style.display = 'none';
+            }, 300);
+          } else {
+            w.style.display = 'flex';
+          }
+        });
+      }
+      
+      if (chatInput) {
+        chatInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') sendMessage();
+        });
+      }
+      
+      // Add input validation listeners
+      ['inputName', 'inputEmail', 'inputPhone'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('input', (e) => {
+            const target = e.target as HTMLInputElement;
+            target.classList.remove('invalid');
+          });
+        }
+      });
+    };
+
+    // Initialize the widget after a short delay to ensure DOM is ready
+    const timer = setTimeout(initChatWidget, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <>
       <style>
         {`
         html, body{background:#fff; margin:0; padding:0;}
@@ -202,113 +317,88 @@ const App = () => (
           }}>Send</button>
         </div>
       </div>
+    </>
+  );
+};
 
-      <script>
-        {`
-        const webhookUrl='https://teaguewins.app.n8n.cloud/webhook/091748d5-ef40-4a83-a1d9-c1a5eb8f0089/chat';
-        const suggestedMessages=["What services do you offer?","Can I schedule a call?","Tell me about pricing."];
-        let sessionId=localStorage.getItem('chatSession')||(()=>{const id=Math.random().toString(36).substr(2,10);localStorage.setItem('chatSession',id);return id;})();
-        let typingIndicator;
-
-        function appendMessage(text,type){
-          const box=document.getElementById('chatBox');
-          const div=document.createElement('div');
-          div.className='message '+type;
-          div.textContent=text;
-          box.appendChild(div);
-          box.scrollTop=box.scrollHeight;
-        }
-        function showTyping(){
-          const box=document.getElementById('chatBox');
-          typingIndicator=document.createElement('div');
-          typingIndicator.className='message bot';
-          typingIndicator.textContent='…';
-          box.appendChild(typingIndicator);
-          box.scrollTop=box.scrollHeight;
-        }
-        function hideTyping(){if(typingIndicator){typingIndicator.remove();typingIndicator=null;}}
-        function hideSuggestions(){
-          const row=document.querySelector('.suggestionRow');
-          if(row)row.remove();
-        }
-        function showSuggestions(){
-          const box=document.getElementById('chatBox');
-          const row=document.createElement('div');
-          row.className='suggestionRow';
-          suggestedMessages.forEach(text=>{
-            const btn=document.createElement('button');
-            btn.className='suggestionBubble';
-            btn.textContent=text;
-            btn.onclick=()=>{hideSuggestions();sendMessage(text);};
-            row.appendChild(btn);
-          });
-          box.appendChild(row);
-        }
-        function hideForm(){
-          document.getElementById('preChatForm').style.display='none';
-          document.getElementById('chatBox').style.display='block';
-          document.getElementById('inputBar').style.display='flex';
-        }
-        async function startChat(){
-          const name=document.getElementById('inputName');
-          const email=document.getElementById('inputEmail');
-          const phone=document.getElementById('inputPhone');
-          let ok=true;
-          [name,email,phone].forEach(el=>{
-            el.classList.remove('invalid');
-            if(!el.value.trim()){
-              el.classList.add('invalid');
-              ok=false;
-            }
-          });
-          if(!ok)return;
-          const intro=\`User joined:\\nName: \${name.value.trim()}\\nEmail: \${email.value.trim()}\\nPhone: \${phone.value.trim()}\`;
-          hideForm();
-          appendMessage(intro,'user');
-          showTyping();
-          try{
-            const res=await fetch(webhookUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chatInput:intro,sessionId,timestamp:new Date().toISOString()})});
-            const data=await res.json();
-            hideTyping();
-            appendMessage(data.reply||'👾 Welcome! How can I assist you today?','bot');
-            showSuggestions();
-          }catch{
-            hideTyping();
-            appendMessage('🔴 Connection lost. Retry?','bot');
-          }
-        }
-        async function sendMessage(optional=''){
-          const input=document.getElementById('chatInput');
-          const msg=optional||input.value.trim();if(!msg)return;
-          if(!optional)hideSuggestions();
-          appendMessage(msg,'user');if(!optional)input.value='';
-          showTyping();
-          try{
-            const res=await fetch(webhookUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chatInput:msg,sessionId,timestamp:new Date().toISOString()})});
-            const data=await res.json();
-            hideTyping();
-            appendMessage(data.reply||'⚠️ No response received.','bot');
-          }catch{
-            hideTyping();
-            appendMessage('🔴 Connection lost. Retry?','bot');
-          }
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-          ['inputName', 'inputEmail', 'inputPhone'].forEach(id => {
-            document.getElementById(id).addEventListener('input', (e) => {
-              e.target.classList.remove('invalid');
-            });
-          });
-        });
-        document.getElementById('chatToggle').addEventListener('click',()=>{
-          const w=document.getElementById('chatWidget');
-          const open=w.classList.toggle('open');
-          if(!open)setTimeout(()=>w.style.display='none',300);else w.style.display='flex';
-        });
-        document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage();});
-        `}
-      </script>
-      {/* =====  /END WHITE-GREEN WIDGET  ===== */}
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        {/* Cal.com scripts for scheduling */}
+        <script type="text/javascript">
+          {`
+            (function (C, A, L) { 
+              let p = function (a, ar) { a.q.push(ar); }; 
+              let d = C.document; 
+              C.Cal = C.Cal || function () { 
+                let cal = C.Cal; 
+                let ar = arguments; 
+                if (!cal.loaded) { 
+                  cal.ns = {}; 
+                  cal.q = cal.q || []; 
+                  d.head.appendChild(d.createElement("script")).src = A; 
+                  cal.loaded = true; 
+                } 
+                if (ar[0] === L) { 
+                  const api = function () { p(api, arguments); }; 
+                  const namespace = ar[1]; 
+                  api.q = api.q || []; 
+                  if(typeof namespace === "string"){
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                  } else p(cal, ar); 
+                  return;
+                } 
+                p(cal, ar); 
+              }; 
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "gutter-cleaning", {origin:"https://app.cal.com"});
+            Cal.ns["gutter-cleaning"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+          `}
+        </script>
+        <script type="text/javascript">
+          {`
+            (function (C, A, L) { 
+              let p = function (a, ar) { a.q.push(ar); }; 
+              let d = C.document; 
+              C.Cal = C.Cal || function () { 
+                let cal = C.Cal; 
+                let ar = arguments; 
+                if (!cal.loaded) { 
+                  cal.ns = {}; 
+                  cal.q = cal.q || []; 
+                  d.head.appendChild(d.createElement("script")).src = A; 
+                  cal.loaded = true; 
+                } 
+                if (ar[0] === L) { 
+                  const api = function () { p(api, arguments); }; 
+                  const namespace = ar[1]; 
+                  api.q = api.q || []; 
+                  if(typeof namespace === "string"){
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                  } else p(cal, ar); 
+                  return;
+                } 
+                p(cal, ar); 
+              }; 
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "lawn-mow", {origin:"https://app.cal.com"});
+            Cal.ns["lawn-mow"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+          `}
+        </script>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+      <ChatWidget />
     </TooltipProvider>
   </QueryClientProvider>
 );
