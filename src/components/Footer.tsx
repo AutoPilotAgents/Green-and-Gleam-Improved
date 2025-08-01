@@ -1,57 +1,91 @@
-import { MapPin, Phone, Mail } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-forest text-primary-foreground py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          <div>
+    <footer className="bg-card border-t border-border">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="md:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-primary-lime rounded-full flex items-center justify-center">
-                <span className="text-primary-forest font-bold text-sm">G&G</span>
-              </div>
+              <img 
+                src="/android-chrome-192x192.png" 
+                alt="Green & Gleam Logo" 
+                className="w-8 h-8 rounded-full"
+              />
               <div>
-                <h3 className="text-xl font-bold">Green & Gleam</h3>
-                <p className="text-sm text-primary-foreground/80">Gutter Cleaning Experts</p>
+                <h3 className="text-lg font-bold text-foreground">Green & Gleam</h3>
+                <p className="text-xs text-muted-foreground">Gutter Cleaning Experts</p>
               </div>
             </div>
-            <p className="text-primary-foreground/80 mb-4">
-              Your trusted partner for professional gutter cleaning and maintenance 
-              services in Saint Paul, Minnesota.
+            <p className="text-muted-foreground text-sm mb-4">
+              Professional gutter cleaning services for residential and commercial properties in the Twin Cities area.
             </p>
+            <div className="flex space-x-3">
+              <Button variant="outline" size="icon" className="rounded-full">
+                <Facebook className="w-4 h-4" />
+              </Button>
+              <Button variant="outline" size="icon" className="rounded-full">
+                <Instagram className="w-4 h-4" />
+              </Button>
+              <Button variant="outline" size="icon" className="rounded-full">
+                <Twitter className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-primary-foreground/80">
-              <li><a href="#" className="hover:text-primary-lime transition-colors">Gutter Cleaning</a></li>
-              <li><a href="#" className="hover:text-primary-lime transition-colors">Gutter Repair</a></li>
-              <li><a href="#" className="hover:text-primary-lime transition-colors">Gutter Installation</a></li>
-              <li><a href="#" className="hover:text-primary-lime transition-colors">Eco-Friendly Solutions</a></li>
+            <h4 className="text-lg font-semibold mb-4 text-foreground">Services</h4>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Gutter Cleaning</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Gutter Repair</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Gutter Guard Installation</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Downspout Cleaning</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Commercial Services</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <div className="space-y-3 text-primary-foreground/80">
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span>(651) 555-CLEAN</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4" />
-                <span>info@greengleam.com</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4" />
-                <span>Saint Paul, Minnesota</span>
-              </div>
-            </div>
+            <h4 className="text-lg font-semibold mb-4 text-foreground">Contact</h4>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <Phone className="w-4 h-4 text-primary mr-2 mt-0.5" />
+                <span className="text-muted-foreground text-sm">(651) 555-0123</span>
+              </li>
+              <li className="flex items-start">
+                <Mail className="w-4 h-4 text-primary mr-2 mt-0.5" />
+                <span className="text-muted-foreground text-sm">info@greengleam.com</span>
+              </li>
+              <li className="flex items-start">
+                <MapPin className="w-4 h-4 text-primary mr-2 mt-0.5" />
+                <span className="text-muted-foreground text-sm">Saint Paul, MN 55104</span>
+              </li>
+              <li className="flex items-start">
+                <Clock className="w-4 h-4 text-primary mr-2 mt-0.5" />
+                <span className="text-muted-foreground text-sm">Mon-Fri: 8AM-5PM</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-foreground">Service Area</h4>
+            <p className="text-muted-foreground text-sm mb-4">
+              Serving the entire Twin Cities metro area including:
+            </p>
+            <ul className="text-muted-foreground text-sm space-y-1">
+              <li>Saint Paul</li>
+              <li>Minneapolis</li>
+              <li>Stillwater</li>
+              <li>Hastings</li>
+              <li>Lake Elmo</li>
+            </ul>
           </div>
         </div>
         
-        <div className="border-t border-primary-foreground/20 pt-8 text-center text-primary-foreground/60">
-          <p>&copy; 2024 Green & Gleam. All rights reserved. | Licensed & Insured | Serving Saint Paul, MN</p>
+        <div className="border-t border-border mt-8 pt-8 text-center">
+          <p className="text-muted-foreground text-sm">
+            © {new Date().getFullYear()} Green & Gleam Gutter Cleaning. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
