@@ -40,6 +40,13 @@ const Contact = () => {
             Contact Green & Gleam today for your free estimate and experience the difference 
             professional gutter service makes.
           </p>
+          <div className="mt-6">
+            <a href="/schedule">
+              <Button variant="hero" size="lg" className="px-8 py-4">
+                Schedule Now
+              </Button>
+            </a>
+          </div>
         </div>
         
         <div 
