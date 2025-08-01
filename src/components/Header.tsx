@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -39,12 +38,6 @@ const Header = () => {
           >
             About
           </a>
-          <Link 
-            to="/schedule"
-            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
-          >
-            Schedule
-          </Link>
           <a 
             href="#contact" 
             className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"

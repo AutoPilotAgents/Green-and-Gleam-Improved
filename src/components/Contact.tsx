@@ -1,9 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock, Calendar } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 import RippleButton from "@/components/RippleButton";
-import { Link } from "react-router-dom";
 
 const Contact = () => {
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -84,18 +83,16 @@ const Contact = () => {
           >
             <CardHeader className="text-center">
               <div className="flex justify-center mb-4 group-hover:animate-bounce-gentle">
-                <Calendar className="w-8 h-8 text-primary" />
+                <MapPin className="w-8 h-8 text-primary" />
               </div>
-              <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Schedule Online</CardTitle>
+              <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Service Area</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-lg font-semibold text-primary mb-2 group-hover:animate-pulse-glow">Book Your Appointment</p>
-              <p className="text-muted-foreground">Choose your preferred time</p>
-              <Link to="/schedule">
-                <RippleButton variant="outline" className="mt-4 w-full">
-                  Schedule Now
-                </RippleButton>
-              </Link>
+              <p className="text-lg font-semibold text-primary mb-2 group-hover:animate-pulse-glow">Saint Paul, MN</p>
+              <p className="text-muted-foreground">And surrounding areas</p>
+              <RippleButton variant="outline" className="mt-4 w-full">
+                Check Coverage
+              </RippleButton>
             </CardContent>
           </Card>
         </div>
