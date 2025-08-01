@@ -17,6 +17,13 @@ const Contact = () => {
     window.location.href = "mailto:info@greengleam.com";
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <section id="contact" className="py-20 bg-gradient-accent">
       <div className="container mx-auto px-4">
@@ -98,8 +105,8 @@ const Contact = () => {
             <CardContent className="text-center">
               <p className="text-lg font-semibold text-primary mb-2 group-hover:animate-pulse-glow">Saint Paul, MN</p>
               <p className="text-muted-foreground">And surrounding areas</p>
-              <RippleButton variant="outline" className="mt-4 w-full">
-                Check Coverage
+              <RippleButton variant="outline" className="mt-4 w-full" onClick={scrollToTop}>
+                Back to Top
               </RippleButton>
             </CardContent>
           </Card>
