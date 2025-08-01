@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 import RippleButton from "@/components/RippleButton";
+import { toast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -13,14 +14,13 @@ const Contact = () => {
     window.location.href = "tel:6515550123";
   };
 
-  const handleEmailClick = () => {
-    window.location.href = "mailto:info@greengleam.com";
-  };
-
   const handleCopyEmail = async () => {
     const email = "info@greengleam.com";
     await navigator.clipboard.writeText(email);
-    alert("Email copied to clipboard: " + email);
+    toast({
+      title: "Email copied",
+      description: `${email} has been copied to your clipboard.`,
+    });
   };
 
   const scrollToTop = () => {
