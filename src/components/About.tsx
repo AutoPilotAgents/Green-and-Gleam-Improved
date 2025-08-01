@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Users, Award, MapPin, Leaf } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import placeholderImage from "@/assets/placeholder.png";
 
 const About = () => {
   const textAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -76,15 +77,20 @@ const About = () => {
           
           <div 
             ref={imageAnimation.ref}
-            className={`relative ${scrollAnimations.fadeInRight} ${
+            className={`relative overflow-hidden rounded-2xl shadow-primary ${scrollAnimations.fadeInRight} ${
               imageAnimation.isVisible ? scrollAnimations.fadeInRightActive : scrollAnimations.fadeInRightInitial
             }`}
           >
-            {/* IMAGE PLACEHOLDER - Replace with your image using the instructions below */}
-            <div className="bg-gray-200 border-2 border-dashed rounded-2xl w-full h-96 flex items-center justify-center">
-              <span className="text-gray-500 text-lg">Image Placeholder</span>
+            <img 
+              src={placeholderImage} 
+              alt="Saint Paul Minnesota Skyline" 
+              className="w-full h-96 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-primary/20"></div>
+            <div className="absolute bottom-6 left-6 text-white">
+              <h3 className="text-xl font-semibold mb-2">Local Saint Paul Experts</h3>
+              <p className="text-white/90">Serving every neighborhood with pride</p>
             </div>
-            {/* END IMAGE PLACEHOLDER */}
           </div>
         </div>
       </div>
