@@ -83,7 +83,7 @@ const About = () => {
             <div className="bg-white rounded-2xl shadow-card p-6">
               <div className="flex items-center mb-4">
                 <img 
-                  src="/placeholder2.png" 
+                  src="/placeholder.png" 
                   alt="Team Member" 
                   className="w-16 h-16 rounded-full object-cover mr-4"
                 />
@@ -101,7 +101,7 @@ const About = () => {
             <div className="bg-white rounded-2xl shadow-card p-6">
               <div className="flex items-center mb-4">
                 <img 
-                  src="/placeholder2.png" 
+                  src="/placeholder.png" 
                   alt="Team Member" 
                   className="w-16 h-16 rounded-full object-cover mr-4"
                 />
