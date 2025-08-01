@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, Star } from "lucide-react";
 import heroImage from "@/assets/hero-gutter-cleaning.jpg";
+import { smoothScrollToId } from "@/lib/scroll";
 
 const Hero = () => {
   return (
@@ -33,7 +34,7 @@ const Hero = () => {
               variant="hero" 
               size="lg" 
               className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => smoothScrollToId('contact')}
             >
               Get Free Quote
               <ArrowRight className="w-5 h-5" />
@@ -42,7 +43,7 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-4 bg-white/10 border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => smoothScrollToId('services')}
             >
               View Services
             </Button>
