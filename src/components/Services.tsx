@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Droplets, Home, Wrench, Leaf, ArrowRight, Scissors } from "lucide-react";
+import { Droplets, Scissors, Wrench, Leaf, ArrowRight, Home, TreePine } from "lucide-react";
 import serviceIcon from "@/assets/gutter-service-icon.jpg";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 
@@ -23,25 +23,25 @@ const Services = () => {
     {
       icon: <Droplets className="w-8 h-8 text-primary" />,
       title: "Gutter Cleaning",
-      description: "Complete debris removal and thorough cleaning of your gutter system.",
+      description: "Complete debris removal and thorough cleaning of your gutter system to prevent water damage.",
       price: "Get your quote"
     },
     {
       icon: <Scissors className="w-8 h-8 text-primary" />,
-      title: "Lawnmowing",
+      title: "Lawn Mowing",
       description: "Professional lawn cutting and trimming for a pristine yard appearance.",
       price: "Starting at $25"
     },
     {
-      icon: <Wrench className="w-8 h-8 text-primary" />,
-      title: "Weed Walking",
-      description: "Expert removal of weeds from walkways, driveways, and property edges.",
-      price: "Starting at $10"
+      icon: <TreePine className="w-8 h-8 text-primary" />,
+      title: "Landscaping",
+      description: "Complete yard maintenance including edging, trimming, and seasonal cleanups.",
+      price: "Custom pricing"
     },
     {
       icon: <Leaf className="w-8 h-8 text-primary" />,
-      title: "Custom Solutions",
-      description: "Have a land scaping job in mind ? shoot us a massage.",
+      title: "Eco-Friendly Care",
+      description: "Organic fertilization and sustainable practices for a healthy lawn and environment.",
       price: "Contact Us"
     }
   ];
@@ -63,10 +63,10 @@ const Services = () => {
             />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Professional Gutter Services
+            Professional Home Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive gutter solutions to protect your Saint Paul home from water damage
+            Comprehensive solutions to protect your home and enhance your outdoor spaces
           </p>
         </div>
         

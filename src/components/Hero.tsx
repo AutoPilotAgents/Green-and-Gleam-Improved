@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Clock, Star } from "lucide-react";
+import { ArrowRight, Shield, Clock, Star, Scissors } from "lucide-react";
 import heroImage from "@/assets/hero-gutter-cleaning.jpg";
 
 const Hero = () => {
@@ -30,12 +30,12 @@ const Hero = () => {
           
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Keep Your Home
-            <span className="text-primary-lime block">Safe & Clean</span>
+            <span className="text-primary-lime block">Spotless & Safe</span>
           </h1>
           
           <p className="text-xl text-white/90 mb-8 max-w-2xl">
-            Professional gutter cleaning and maintenance services in Saint Paul, Minnesota. 
-            Protecting your home with eco-friendly solutions and expert craftsmanship.
+            Professional gutter cleaning, lawn mowing, and landscaping services in Saint Paul, Minnesota. 
+            Protecting your home and enhancing your outdoor spaces with eco-friendly solutions.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -58,7 +58,7 @@ const Hero = () => {
             </Button>
           </div>
           
-          <div className="flex items-center space-x-8 text-white/90">
+          <div className="flex flex-wrap items-center gap-8 text-white/90">
             <div className="flex items-center space-x-2">
               <Clock className="w-5 h-5 text-primary-lime" />
               <span>Same Day Service</span>
@@ -66,6 +66,10 @@ const Hero = () => {
             <div className="flex items-center space-x-2">
               <Star className="w-5 h-5 text-primary-lime" />
               <span>5-Star Rated</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Scissors className="w-5 h-5 text-primary-lime" />
+              <span>Eco-Friendly</span>
             </div>
           </div>
         </div>

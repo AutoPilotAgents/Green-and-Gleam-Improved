@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, MapPin, Droplets, Scissors } from "lucide-react";
 
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
@@ -23,15 +23,16 @@ const Header = () => {
           />
           <div>
             <h1 className="text-xl font-bold text-foreground">Green & Gleam</h1>
-            <p className="text-xs text-muted-foreground">Gutter Cleaning Experts</p>
+            <p className="text-xs text-muted-foreground">Gutter & Lawn Experts</p>
           </div>
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
           <button 
             onClick={() => scrollToSection('services')}
-            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer flex items-center"
           >
+            <Droplets className="w-4 h-4 mr-1" />
             Services
           </button>
           <button 
@@ -42,8 +43,9 @@ const Header = () => {
           </button>
           <button 
             onClick={() => scrollToSection('contact')}
-            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer flex items-center"
           >
+            <Scissors className="w-4 h-4 mr-1" />
             Contact
           </button>
         </nav>
