@@ -24,7 +24,7 @@ const Services = () => {
       icon: <Droplets className="w-8 h-8 text-primary" />,
       title: "Gutter Cleaning",
       description: "Complete debris removal and thorough cleaning of your gutter system.",
-      price: "Starting at 99$"
+      price: "Get your quote"
     },
     {
       icon: <Scissors className="w-8 h-8 text-primary" />,
@@ -40,8 +40,8 @@ const Services = () => {
     },
     {
       icon: <Leaf className="w-8 h-8 text-primary" />,
-      title: "Custom Job",
-      description: "Have a land scaping job in mind? shoot us a massage.",
+      title: "Custom Solutions",
+      description: "Have a land scaping job in mind ? shoot us a massage.",
       price: "Contact Us"
     }
   ];
