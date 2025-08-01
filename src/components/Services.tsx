@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Droplets, Scissors, Leaf, Calendar, DollarSign } from "lucide-react";
+import { Droplets, Scissors, Leaf, Calendar } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 
 const Services = () => {
@@ -55,7 +55,6 @@ const Services = () => {
             </CardHeader>
             <CardContent className="text-center">
               <div className="flex items-center justify-center mb-4">
-                <DollarSign className="w-5 h-5 text-primary-lime mr-1" />
                 <span className="text-2xl font-bold text-foreground">$99</span>
               </div>
               <p className="text-muted-foreground mb-6">
@@ -93,7 +92,6 @@ const Services = () => {
             </CardHeader>
             <CardContent className="text-center">
               <div className="flex items-center justify-center mb-4">
-                <DollarSign className="w-5 h-5 text-primary-lime mr-1" />
                 <span className="text-2xl font-bold text-foreground">$25</span>
               </div>
               <p className="text-muted-foreground mb-6">
