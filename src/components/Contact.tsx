@@ -72,7 +72,7 @@ const Contact = () => {
               <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Call Us Today</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-2xl font-bold text-primary mb-2 group-hover:animate-pulse-glow">(651) 555-CLEAN</p>
+              <p className="text-2xl font-bold text-primary mb-2">(651) 555-CLEAN</p>
               <p className="text-muted-foreground">Speak with our experts</p>
               <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyPhone}>
                 Copy Number
