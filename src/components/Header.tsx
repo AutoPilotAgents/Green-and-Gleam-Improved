@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin } from "lucide-react";
-import logoImage from "@/assets/android-chrome-192x192.png";
 
 const Header = () => {
   return (
@@ -8,7 +7,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <img 
-            src={logoImage} 
+            src="/android-chrome-192x192.png" 
             alt="Green & Gleam Logo" 
             className="w-12 h-12 rounded-full"
           />
