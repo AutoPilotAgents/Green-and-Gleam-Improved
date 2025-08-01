@@ -2,6 +2,16 @@ import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from "lucide
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
@@ -37,11 +47,46 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-foreground">Services</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Gutter Cleaning</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Gutter Repair</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Gutter Guard Installation</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Downspout Cleaning</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Commercial Services</a></li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Gutter Cleaning
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Gutter Repair
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Gutter Guard Installation
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Downspout Cleaning
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Commercial Services
+                </button>
+              </li>
             </ul>
           </div>
           
@@ -68,16 +113,32 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-foreground">Service Area</h4>
-            <p className="text-muted-foreground text-sm mb-4">
-              Serving the entire Twin Cities metro area including:
-            </p>
-            <ul className="text-muted-foreground text-sm space-y-1">
-              <li>Saint Paul</li>
-              <li>Minneapolis</li>
-              <li>Stillwater</li>
-              <li>Hastings</li>
-              <li>Lake Elmo</li>
+            <h4 className="text-lg font-semibold mb-4 text-foreground">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Our Services
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('about')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  About Us
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Contact
+                </button>
+              </li>
             </ul>
           </div>
         </div>
