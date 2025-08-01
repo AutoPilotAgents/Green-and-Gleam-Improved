@@ -9,11 +9,6 @@ const Contact = () => {
   const cardsAnimation = useScrollAnimation({ threshold: 0.1 });
   const hoursAnimation = useScrollAnimation({ threshold: 0.3 });
 
-  const smoothScroll = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section id="contact" className="py-20 bg-gradient-accent">
       <div className="container mx-auto px-4">
@@ -53,7 +48,7 @@ const Contact = () => {
             <CardContent className="text-center">
               <p className="text-2xl font-bold text-primary mb-2 group-hover:animate-pulse-glow">(651) 555-CLEAN</p>
               <p className="text-muted-foreground">Speak with our experts</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={() => smoothScroll('contact')}>
+              <RippleButton variant="outline" className="mt-4 w-full">
                 Call Now
               </RippleButton>
             </CardContent>
@@ -74,7 +69,7 @@ const Contact = () => {
             <CardContent className="text-center">
               <p className="text-lg font-semibold text-primary mb-2 group-hover:animate-pulse-glow">info@greengleam.com</p>
               <p className="text-muted-foreground">Get a written estimate</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={() => smoothScroll('contact')}>
+              <RippleButton variant="outline" className="mt-4 w-full">
                 Send Email
               </RippleButton>
             </CardContent>
@@ -95,7 +90,7 @@ const Contact = () => {
             <CardContent className="text-center">
               <p className="text-lg font-semibold text-primary mb-2 group-hover:animate-pulse-glow">Saint Paul, MN</p>
               <p className="text-muted-foreground">And surrounding areas</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={() => smoothScroll('contact')}>
+              <RippleButton variant="outline" className="mt-4 w-full">
                 Check Coverage
               </RippleButton>
             </CardContent>

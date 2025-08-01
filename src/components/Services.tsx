@@ -36,11 +36,6 @@ const Services = () => {
     }
   ];
 
-  const smoothScroll = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -99,7 +94,7 @@ const Services = () => {
             ctaAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
           }`}
         >
-          <Button variant="cta" size="lg" className="text-lg px-8 py-4" onClick={() => smoothScroll('contact')}>
+          <Button variant="cta" size="lg" className="text-lg px-8 py-4">
             Get Your Free Estimate
             <ArrowRight className="w-5 h-5" />
           </Button>
