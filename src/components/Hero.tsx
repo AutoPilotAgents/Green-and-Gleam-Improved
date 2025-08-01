@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Clock, Star } from "lucide-react";
-import heroImage from "@/assets/hero-gutter-cleaning.jpg";
+import { Leaf, Droplets, Calendar } from "lucide-react";
+import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 
 const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+  const animation = useScrollAnimation({ threshold: 0.1 });
+  
+  const scrollToScheduling = () => {
+    const element = document.getElementById("scheduling");
     if (element) {
       element.scrollIntoView({ 
         behavior: 'smooth',
@@ -14,58 +16,63 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-hero">
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      ></div>
-      
-      <div className="container mx-auto px-4 py-20 relative z-20">
-        <div className="max-w-3xl">
-          <div className="flex items-center space-x-2 mb-6">
-            <Shield className="w-6 h-6 text-primary-lime" />
-            <span className="text-primary-lime font-semibold">Trusted Local Experts</span>
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary-forest to-primary-emerald py-20 md:py-32">
+      <div className="absolute inset-0 bg-[url('/src/assets/hero-pattern.svg')] opacity-10"></div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div 
+          ref={animation.ref}
+          className={`text-center max-w-4xl mx-auto ${scrollAnimations.fadeInUp} ${
+            animation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
+          }`}
+        >
+          <div className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-2 bg-primary-lime/20 backdrop-blur-sm rounded-full border border-primary-lime/30">
+            <Leaf className="w-5 h-5 text-primary-lime" />
+            <span className="text-primary-lime font-medium">Professional Gutter Cleaning</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Keep Your Home
-            <span className="text-primary-lime block">Safe & Clean</span>
+            Clean Gutters, <span className="text-primary-lime">Happy Home</span>
           </h1>
           
-          <p className="text-xl text-white/90 mb-8 max-w-2xl">
-            Professional gutter cleaning and maintenance services in Saint Paul, Minnesota. 
-            Protecting your home with eco-friendly solutions and expert craftsmanship.
+          <p className="text-xl md:text-2xl text-primary-50 mb-12 max-w-3xl mx-auto">
+            Expert gutter cleaning services that protect your home and enhance its beauty
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
             <Button 
               variant="hero" 
               size="lg" 
               className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-              onClick={() => scrollToSection('contact')}
+              onClick={scrollToScheduling}
             >
-              Get Free Quote
-              <ArrowRight className="w-5 h-5" />
+              <Calendar className="w-5 h-5 mr-2" />
+              Schedule Service
             </Button>
+            
             <Button 
               variant="outline" 
               size="lg" 
-              className="text-lg px-8 py-4 bg-white/10 border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
-              onClick={() => scrollToSection('services')}
+              className="text-lg px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 hover:scale-105 transition-all duration-300"
             >
-              View Services
+              <Droplets className="w-5 h-5 mr-2" />
+              Our Services
             </Button>
           </div>
           
-          <div className="flex items-center space-x-8 text-white/90">
-            <div className="flex items-center space-x-2">
-              <Clock className="w-5 h-5 text-primary-lime" />
-              <span>Same Day Service</span>
+          <div className="flex items-center justify-center gap-4 text-primary-100">
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-primary-lime mr-2"></div>
+              <span>Same-Day Service</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Star className="w-5 h-5 text-primary-lime" />
-              <span>5-Star Rated</span>
+            <div className="w-px h-6 bg-primary-300"></div>
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-primary-lime mr-2"></div>
+              <span>100% Satisfaction</span>
+            </div>
+            <div className="w-px h-6 bg-primary-300"></div>
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-primary-lime mr-2"></div>
+              <span>Licensed & Insured</span>
             </div>
           </div>
         </div>
