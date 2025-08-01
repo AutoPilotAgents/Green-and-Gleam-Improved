@@ -2,6 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Phone, MapPin } from "lucide-react";
 
 const Header = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <header className="bg-card/80 backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -18,36 +28,24 @@ const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
-          <a 
-            href="#services" 
-            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-            }}
+          <button 
+            onClick={() => scrollToSection('services')}
+            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
           >
             Services
-          </a>
-          <a 
-            href="#about" 
-            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-            }}
+          </button>
+          <button 
+            onClick={() => scrollToSection('about')}
+            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
           >
             About
-          </a>
-          <a 
-            href="#contact" 
-            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-            }}
+          </button>
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
           >
             Contact
-          </a>
+          </button>
         </nav>
         
         <div className="flex items-center space-x-3">

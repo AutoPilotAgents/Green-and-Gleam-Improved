@@ -9,6 +9,16 @@ const Services = () => {
   const cardsAnimation = useScrollAnimation({ threshold: 0.1 });
   const ctaAnimation = useScrollAnimation({ threshold: 0.3 });
 
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   const services = [
     {
       icon: <Droplets className="w-8 h-8 text-primary" />,
@@ -94,7 +104,12 @@ const Services = () => {
             ctaAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
           }`}
         >
-          <Button variant="cta" size="lg" className="text-lg px-8 py-4">
+          <Button 
+            variant="cta" 
+            size="lg" 
+            className="text-lg px-8 py-4"
+            onClick={scrollToContact}
+          >
             Get Your Free Estimate
             <ArrowRight className="w-5 h-5" />
           </Button>
