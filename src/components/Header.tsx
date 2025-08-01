@@ -1,69 +1,48 @@
-import { Button } from "@/components/ui/button";
-import { Phone, MapPin } from "lucide-react";
+import { useCallback } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
+  const scrollToSection = useCallback((id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
 
   return (
-    <header className="bg-card/80 backdrop-blur-sm border-b border-border sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <img 
-            src="/android-chrome-192x192.png" 
-            alt="Green & Gleam Logo" 
-            className="w-12 h-12 rounded-full"
-          />
-          <div>
-            <h1 className="text-xl font-bold text-foreground">Green & Gleam</h1>
-            <p className="text-xs text-muted-foreground">Gutter Cleaning Experts</p>
-          </div>
-        </div>
-        
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur border-b border-border">
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <Link to="/" className="text-xl font-bold text-foreground">
+          Green & Gleam
+        </Link>
+
         <nav className="hidden md:flex items-center space-x-6">
-          <button 
-            onClick={() => scrollToSection('services')}
-            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+          <button
+            onClick={() => scrollToSection("services")}
+            className="font-semibold text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
           >
             Services
           </button>
-          <button 
-            onClick={() => scrollToSection('about')}
-            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+
+          <button
+            onClick={() => scrollToSection("about")}
+            className="font-semibold text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
           >
             About
           </button>
-          <button 
-            onClick={() => scrollToSection('contact')}
-            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="font-semibold text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
           >
             Contact
           </button>
-          <button 
-            onClick={() => scrollToSection('scheduling')}
-            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+
+          <button
+            onClick={() => scrollToSection("schedule")}
+            className="font-semibold text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
           >
             Schedule
           </button>
         </nav>
-        
-        <div className="flex items-center space-x-3">
-          <div className="hidden sm:flex items-center space-x-1 text-sm text-muted-foreground">
-            <MapPin className="w-4 h-4" />
-            <span>Saint Paul, MN</span>
-          </div>
-          <Button variant="hero" size="sm">
-            <Phone className="w-4 h-4" />
-            Call Now
-          </Button>
-        </div>
       </div>
     </header>
   );
