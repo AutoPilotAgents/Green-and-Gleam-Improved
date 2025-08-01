@@ -31,7 +31,9 @@ const About = () => {
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
-              We're Teague and Sam, two 18-year-olds who take pride in reliable, neighborly service. We specialize in gutter cleaning and lawn mowing, treating your home with the care we’d give our own. On-time, courteous, and thorough, so you don’t have to climb ladders or push mowers. We listen, tidy up, and leave everything safer and looking great. Local and easy to reach. Let us handle the hard work while you enjoy your yard..
+              Green & Gleam has been the trusted choice for gutter cleaning and maintenance 
+              in the Twin Cities area for over a decade. We understand the unique challenges 
+              that Minnesota weather presents to your home's gutter system.
             </p>
             
             <p className="text-lg text-muted-foreground mb-8">
@@ -74,19 +76,44 @@ const About = () => {
           
           <div 
             ref={imageAnimation.ref}
-            className={`relative overflow-hidden rounded-2xl shadow-primary ${scrollAnimations.fadeInRight} ${
+            className={`grid grid-cols-1 gap-8 ${scrollAnimations.fadeInRight} ${
               imageAnimation.isVisible ? scrollAnimations.fadeInRightActive : scrollAnimations.fadeInRightInitial
             }`}
           >
-            <img 
-              src="/placeholder.png" 
-              alt="Saint Paul Minnesota Skyline" 
-              className="w-full h-[500px] object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-primary/20"></div>
-            <div className="absolute bottom-6 left-6 text-white">
-              <h3 className="text-2xl font-bold mb-2 text-primary drop-shadow-lg">Local Saint Paul Experts</h3>
-              <p className="text-white/90">Serving every neighborhood with care</p>
+            <div className="bg-white rounded-2xl shadow-card p-6">
+              <div className="flex items-center mb-4">
+                <img 
+                  src="/placeholder.png" 
+                  alt="Team Member" 
+                  className="w-16 h-16 rounded-full object-cover mr-4"
+                />
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">Jake Thompson</h3>
+                  <p className="text-primary">Founder & Lead Technician</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground italic">
+                "I started Green & Gleam because I saw a need for reliable, eco-friendly gutter services in our community. 
+                Every home deserves proper protection, and we're committed to delivering that with a personal touch."
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-card p-6">
+              <div className="flex items-center mb-4">
+                <img 
+                  src="/placeholder.png" 
+                  alt="Team Member" 
+                  className="w-16 h-16 rounded-full object-cover mr-4"
+                />
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">Sarah Johnson</h3>
+                  <p className="text-primary">Operations Manager</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground italic">
+                "Our customers aren't just clients - they're our neighbors. That's why we go above and beyond to ensure 
+                every job is completed with precision and care, using only environmentally safe methods."
+              </p>
             </div>
           </div>
         </div>
