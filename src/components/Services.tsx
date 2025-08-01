@@ -94,7 +94,7 @@ const Services = () => {
             <CardContent className="text-center">
               <div className="flex items-center justify-center mb-4">
                 <DollarSign className="w-5 h-5 text-primary-lime mr-1" />
-                <span className="text-2xl font-bold text-foreground">25</span>
+                <span className="text-2xl font-bold text-foreground">$25</span>
               </div>
               <p className="text-muted-foreground mb-6">
                 Professional lawn maintenance to keep your yard looking pristine throughout the growing season.
