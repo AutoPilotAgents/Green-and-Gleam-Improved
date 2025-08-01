@@ -2,10 +2,93 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Scissors, Droplets } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
+import { useEffect } from "react";
+
+// Declare the Cal global variable to fix TypeScript errors
+declare global {
+  interface Window {
+    Cal: any;
+  }
+}
 
 const Scheduling = () => {
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const cardsAnimation = useScrollAnimation({ threshold: 0.1 });
+
+  useEffect(() => {
+    // Initialize Cal.com for gutter cleaning
+    const initGutterCleaning = () => {
+      if (typeof window !== "undefined") {
+        (function (C: any, A: string, L: string) { 
+          let p = function (a: any, ar: any) { a.q.push(ar); }; 
+          let d = C.document; 
+          C.Cal = C.Cal || function () { 
+            let cal = C.Cal; 
+            let ar = arguments; 
+            if (!cal.loaded) { 
+              cal.ns = {}; 
+              cal.q = cal.q || []; 
+              d.head.appendChild(d.createElement("script")).src = A; 
+              cal.loaded = true; 
+            } 
+            if (ar[0] === L) { 
+              const api = function () { p(api, arguments); }; 
+              const namespace = ar[1]; 
+              api.q = api.q || []; 
+              if(typeof namespace === "string"){
+                cal.ns[namespace] = cal.ns[namespace] || api;
+                p(cal.ns[namespace], ar);
+                p(cal, ["initNamespace", namespace]);
+              } else p(cal, ar); 
+              return;
+            } 
+            p(cal, ar); 
+          }; 
+        })(window, "https://app.cal.com/embed/embed.js", "init");
+        
+        window.Cal("init", "gutter-cleaning", {origin:"https://app.cal.com"});
+        window.Cal.ns["gutter-cleaning"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+      }
+    };
+
+    // Initialize Cal.com for lawn mowing
+    const initLawnMowing = () => {
+      if (typeof window !== "undefined") {
+        (function (C: any, A: string, L: string) { 
+          let p = function (a: any, ar: any) { a.q.push(ar); }; 
+          let d = C.document; 
+          C.Cal = C.Cal || function () { 
+            let cal = C.Cal; 
+            let ar = arguments; 
+            if (!cal.loaded) { 
+              cal.ns = {}; 
+              cal.q = cal.q || []; 
+              d.head.appendChild(d.createElement("script")).src = A; 
+              cal.loaded = true; 
+            } 
+            if (ar[0] === L) { 
+              const api = function () { p(api, arguments); }; 
+              const namespace = ar[1]; 
+              api.q = api.q || []; 
+              if(typeof namespace === "string"){
+                cal.ns[namespace] = cal.ns[namespace] || api;
+                p(cal.ns[namespace], ar);
+                p(cal, ["initNamespace", namespace]);
+              } else p(cal, ar); 
+              return;
+            } 
+            p(cal, ar); 
+          }; 
+        })(window, "https://app.cal.com/embed/embed.js", "init");
+        
+        window.Cal("init", "lawn-mow", {origin:"https://app.cal.com"});
+        window.Cal.ns["lawn-mow"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+      }
+    };
+
+    initGutterCleaning();
+    initLawnMowing();
+  }, []);
 
   return (
     <section id="scheduling" className="py-20 bg-background">
