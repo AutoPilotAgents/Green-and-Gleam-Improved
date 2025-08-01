@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Award, MapPin, Leaf, Scissors } from "lucide-react";
+import { Users, Award, MapPin, Leaf } from "lucide-react";
 import saintPaulSkyline from "@/assets/saint-paul-skyline.jpg";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -27,19 +27,20 @@ const About = () => {
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Experts in Home
-              <span className="text-primary block">Care & Maintenance</span>
+              Proudly Serving
+              <span className="text-primary block">Saint Paul, Minnesota</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
-              Green & Gleam has been the trusted choice for gutter cleaning, lawn care, and landscaping 
+              Green & Gleam has been the trusted choice for gutter cleaning and maintenance 
               in the Twin Cities area for over a decade. We understand the unique challenges 
-              that Minnesota weather presents to your home and yard.
+              that Minnesota weather presents to your home's gutter system.
             </p>
             
             <p className="text-lg text-muted-foreground mb-8">
               Our eco-friendly approach combines professional expertise with environmental 
-              responsibility, ensuring your home stays protected while we enhance your outdoor spaces.
+              responsibility, ensuring your home stays protected while we protect our beautiful 
+              Minnesota environment.
             </p>
             
             <div 

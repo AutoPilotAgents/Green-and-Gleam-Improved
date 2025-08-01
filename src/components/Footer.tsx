@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Droplets, Scissors, Leaf, Wrench } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
@@ -25,11 +25,11 @@ const Footer = () => {
               />
               <div>
                 <h3 className="text-lg font-bold text-foreground">Green & Gleam</h3>
-                <p className="text-xs text-muted-foreground">Home Care Experts</p>
+                <p className="text-xs text-muted-foreground">Gutter Cleaning Experts</p>
               </div>
             </div>
             <p className="text-muted-foreground text-sm mb-4">
-              Professional gutter cleaning, lawn care, and landscaping services for residential and commercial properties in the Twin Cities area.
+              Professional gutter cleaning services for residential and commercial properties in the Twin Cities area.
             </p>
             <div className="flex space-x-3">
               <Button variant="outline" size="icon" className="rounded-full">
@@ -50,37 +50,33 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer flex items-center"
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
                 >
-                  <Droplets className="w-4 h-4 mr-2" />
                   Gutter Cleaning
                 </button>
               </li>
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer flex items-center"
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
                 >
-                  <Scissors className="w-4 h-4 mr-2" />
-                  Lawn Mowing
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('services')}
-                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer flex items-center"
-                >
-                  <Leaf className="w-4 h-4 mr-2" />
-                  Landscaping
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('services')}
-                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer flex items-center"
-                >
-                  <Wrench className="w-4 h-4 mr-2" />
                   Gutter Repair
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Gutter Guard Installation
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Downspout Cleaning
                 </button>
               </li>
               <li>
@@ -149,7 +145,7 @@ const Footer = () => {
         
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Green & Gleam Home Services. All rights reserved.
+            © {new Date().getFullYear()} Green & Gleam Gutter Cleaning. All rights reserved.
           </p>
         </div>
       </div>

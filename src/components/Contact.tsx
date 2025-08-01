@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock, Droplets, Scissors } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 import RippleButton from "@/components/RippleButton";
 
@@ -34,11 +34,11 @@ const Contact = () => {
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-accent-foreground mb-4">
-            Ready to Transform Your Home?
+            Ready to Get Started?
           </h2>
           <p className="text-xl text-accent-foreground/80 max-w-2xl mx-auto">
             Contact Green & Gleam today for your free estimate and experience the difference 
-            professional home care services make.
+            professional gutter service makes.
           </p>
         </div>
         
