@@ -24,9 +24,9 @@ const Services = () => {
     },
     {
       icon: <Wrench className="w-8 h-8 text-primary" />,
-      title: "Gutter Installation",
-      description: "New gutter system installation with premium materials and warranty.",
-      price: "Custom Quote"
+      title: "Weed Walking",
+      description: "Expert removal of weeds from walkways, driveways, and property edges.",
+      price: "Starting at $79"
     },
     {
       icon: <Leaf className="w-8 h-8 text-primary" />,
