@@ -254,7 +254,7 @@ html, body{ background:#fff; margin:0; padding:0; }
 
       <button id="chatToggle" aria-label="Open chat">💬</button>
       <div id="chatWidget" role="dialog" aria-label="Chat widget">
-        <div className="chatHeader">AutoPilotAgents</div>
+        <div className="chatHeader">Green&Gleam</div>
         <div id="preChatForm">
           <label>Name</label>
           <input id="inputName" placeholder="Your full name" required />
