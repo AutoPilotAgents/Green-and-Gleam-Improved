@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Droplets, Scissors, Leaf, Calendar } from "lucide-react";
+import { Droplets, Scissors, Leaf, Calendar, DollarSign } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 
 const Services = () => {
@@ -54,6 +54,10 @@ const Services = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
+              <div className="flex items-center justify-center mb-4">
+                <DollarSign className="w-5 h-5 text-primary-lime mr-1" />
+                <span className="text-2xl font-bold text-foreground">$99</span>
+              </div>
               <p className="text-muted-foreground mb-6">
                 Thorough cleaning of gutters and downspouts to prevent water damage and protect your home's foundation.
               </p>
@@ -88,6 +92,10 @@ const Services = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
+              <div className="flex items-center justify-center mb-4">
+                <DollarSign className="w-5 h-5 text-primary-lime mr-1" />
+                <span className="text-2xl font-bold text-foreground">$25</span>
+              </div>
               <p className="text-muted-foreground mb-6">
                 Professional lawn maintenance to keep your yard looking pristine throughout the growing season.
               </p>
@@ -122,6 +130,11 @@ const Services = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
+              <div className="mb-4">
+                <span className="inline-block px-3 py-1 bg-primary-lime/20 text-primary-lime rounded-full text-sm font-medium">
+                  Contact Us for Pricing
+                </span>
+              </div>
               <p className="text-muted-foreground mb-6">
                 Sustainable solutions to enhance your home's protection and appearance.
               </p>
