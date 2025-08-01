@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Award, MapPin, Leaf } from "lucide-react";
 import saintPaulSkyline from "@/assets/saint-paul-skyline.jpg";
-import gutterServiceIcon from "@/assets/gutter-service-icon.jpg";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
@@ -93,17 +92,6 @@ const About = () => {
                 <h3 className="text-xl font-semibold mb-2">Local Saint Paul Experts</h3>
                 <p className="text-white/90">Serving every neighborhood with pride</p>
               </div>
-            </div>
-            
-            <div className="mt-8 text-center">
-              <img 
-                src={gutterServiceIcon} 
-                alt="Gutter Service Icon" 
-                className="mx-auto rounded-lg shadow-lg"
-              />
-              <p className="mt-4 text-muted-foreground">
-                Professional gutter cleaning service in action
-              </p>
             </div>
           </div>
         </div>
