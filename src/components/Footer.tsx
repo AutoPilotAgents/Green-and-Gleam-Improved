@@ -60,7 +60,7 @@ const Footer = () => {
                   onClick={() => scrollToSection('services')}
                   className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
                 >
-                  Gutter Repair
+                  Lawn Mowing
                 </button>
               </li>
               <li>
@@ -68,7 +68,7 @@ const Footer = () => {
                   onClick={() => scrollToSection('services')}
                   className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
                 >
-                  Gutter Guard Installation
+                  Custom Job
                 </button>
               </li>
               <li>
@@ -76,7 +76,7 @@ const Footer = () => {
                   onClick={() => scrollToSection('services')}
                   className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
                 >
-                  Downspout Cleaning
+                 
                 </button>
               </li>
               <li>
@@ -84,7 +84,7 @@ const Footer = () => {
                   onClick={() => scrollToSection('services')}
                   className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
                 >
-                  Commercial Services
+                  
                 </button>
               </li>
             </ul>
