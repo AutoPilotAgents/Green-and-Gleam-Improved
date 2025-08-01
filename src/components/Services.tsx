@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Droplets, Home, Wrench, Leaf, ArrowRight } from "lucide-react";
+import { Droplets, Home, Wrench, Leaf, ArrowRight, Scissors } from "lucide-react";
 import serviceIcon from "@/assets/gutter-service-icon.jpg";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 
@@ -17,9 +17,9 @@ const Services = () => {
       price: "Starting at $149"
     },
     {
-      icon: <Home className="w-8 h-8 text-primary" />,
-      title: "Gutter Repair",
-      description: "Professional repairs for leaks, loose gutters, and damaged sections.",
+      icon: <Scissors className="w-8 h-8 text-primary" />,
+      title: "Lawnmowing",
+      description: "Professional lawn cutting and trimming for a pristine yard appearance.",
       price: "Starting at $99"
     },
     {
