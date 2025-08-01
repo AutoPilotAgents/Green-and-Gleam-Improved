@@ -43,7 +43,7 @@ const Hero = () => {
               variant="hero" 
               size="lg" 
               className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('scheduling')}
             >
               Get Free Quote
               <ArrowRight className="w-5 h-5" />
