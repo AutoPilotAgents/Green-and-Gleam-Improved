@@ -93,7 +93,7 @@ const Contact = () => {
               <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Email Us</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-lg font-semibold text-primary mb-2 group-hover:animate-pulse-glow">info@greengleam.com</p>
+              <p className="text-lg font-semibold text-primary mb-2">info@greengleam.com</p>
               <p className="text-muted-foreground">Get a written estimate</p>
               <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyEmail}>
                 Copy Email
@@ -114,7 +114,7 @@ const Contact = () => {
               <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Service Area</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-lg font-semibold text-primary mb-2 group-hover:animate-pulse-glow">Saint Paul, MN</p>
+              <p className="text-lg font-semibold text-primary mb-2">Saint Paul, MN</p>
               <p className="text-muted-foreground">And surrounding areas</p>
               <RippleButton variant="outline" className="mt-4 w-full" onClick={scrollToTop}>
                 Back to Top
