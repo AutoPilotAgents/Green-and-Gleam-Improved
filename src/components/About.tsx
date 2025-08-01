@@ -10,7 +10,7 @@ const About = () => {
   const statsAnimation = useScrollAnimation({ threshold: 0.3 });
 
   const stats = [
-    { icon: <Users className="w-6 h-6" />, number: 500, label: "Happy Customers", suffix: "+" },
+    { icon: <Users className="w-6 h-6" />, number: 25, label: "Happy Customers", suffix: "+" },
     { icon: <Award className="w-6 h-6" />, number: 10, label: "Years Experience", suffix: "+" },
     { icon: <MapPin className="w-6 h-6" />, number: 50, label: "Saint Paul Neighborhoods", suffix: "+" },
     { icon: <Leaf className="w-6 h-6" />, number: 100, label: "Eco-Friendly", suffix: "%" }
