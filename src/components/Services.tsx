@@ -1,8 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Droplets, Home, Wrench, Leaf, ArrowRight, Scissors } from "lucide-react";
+import { Droplets, Home, Wrench, Leaf, ArrowRight, Scissors, Calendar } from "lucide-react";
 import serviceIcon from "@/assets/gutter-service-icon.jpg";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -90,14 +91,20 @@ const Services = () => {
         
         <div 
           ref={ctaAnimation.ref}
-          className={`text-center ${scrollAnimations.fadeInUp} ${
+          className={`text-center flex flex-col sm:flex-row items-center justify-center gap-4 ${scrollAnimations.fadeInUp} ${
             ctaAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
           }`}
         >
           <Button variant="cta" size="lg" className="text-lg px-8 py-4">
             Get Your Free Estimate
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
+          <Link to="/schedule">
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+              Schedule Online
+              <Calendar className="w-5 h-5 ml-2" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
