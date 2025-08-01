@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Droplets, Home, Wrench, Leaf, ArrowRight, Scissors } from "lucide-react";
 import serviceIcon from "@/assets/gutter-service-icon.jpg";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
-import { smoothScrollToId } from "@/lib/scroll";
 
 const Services = () => {
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -95,7 +94,7 @@ const Services = () => {
             ctaAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
           }`}
         >
-          <Button variant="cta" size="lg" className="text-lg px-8 py-4" onClick={() => smoothScrollToId('contact')}>
+          <Button variant="cta" size="lg" className="text-lg px-8 py-4">
             Get Your Free Estimate
             <ArrowRight className="w-5 h-5" />
           </Button>

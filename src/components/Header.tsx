@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin } from "lucide-react";
-import { smoothScrollToId } from "@/lib/scroll";
 
 const Header = () => {
   return (
@@ -24,7 +23,7 @@ const Header = () => {
             className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
             onClick={(e) => {
               e.preventDefault();
-              smoothScrollToId('services');
+              document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Services
@@ -34,7 +33,7 @@ const Header = () => {
             className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
             onClick={(e) => {
               e.preventDefault();
-              smoothScrollToId('about');
+              document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             About
@@ -44,7 +43,7 @@ const Header = () => {
             className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
             onClick={(e) => {
               e.preventDefault();
-              smoothScrollToId('contact');
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Contact
@@ -56,7 +55,7 @@ const Header = () => {
             <MapPin className="w-4 h-4" />
             <span>Saint Paul, MN</span>
           </div>
-          <Button variant="hero" size="sm" onClick={() => smoothScrollToId('contact')}>
+          <Button variant="hero" size="sm">
             <Phone className="w-4 h-4" />
             Call Now
           </Button>
