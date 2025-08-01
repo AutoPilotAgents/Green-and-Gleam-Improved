@@ -46,6 +46,12 @@ const Header = () => {
           >
             Contact
           </button>
+          <button 
+            onClick={() => scrollToSection('scheduling')}
+            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+          >
+            Schedule
+          </button>
         </nav>
         
         <div className="flex items-center space-x-3">

@@ -139,6 +139,14 @@ const Footer = () => {
                   Contact
                 </button>
               </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('scheduling')}
+                  className="text-muted-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Schedule Service
+                </button>
+              </li>
             </ul>
           </div>
         </div>
