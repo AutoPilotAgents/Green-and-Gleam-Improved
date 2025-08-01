@@ -1,14 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin } from "lucide-react";
+import logoImage from "@/assets/android-chrome-192x192.png";
 
 const Header = () => {
   return (
     <header className="bg-card/80 backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">G&G</span>
-          </div>
+          <img 
+            src={logoImage} 
+            alt="Green & Gleam Logo" 
+            className="w-12 h-12 rounded-full"
+          />
           <div>
             <h1 className="text-xl font-bold text-foreground">Green & Gleam</h1>
             <p className="text-xs text-muted-foreground">Gutter Cleaning Experts</p>
