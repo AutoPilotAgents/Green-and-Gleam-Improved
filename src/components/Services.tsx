@@ -67,7 +67,7 @@ const Services = () => {
                 </li>
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
-                  <span>Flush with high-pressure water</span>
+                  <span></span>
                 </li>
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
