@@ -6,6 +6,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingDroplets from "@/components/FloatingDroplets";
 import InteractiveBackground from "@/components/InteractiveBackground";
+import Scheduling from "@/components/Scheduling";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
         <Services />
         <About />
         <Contact />
+        <Scheduling />
         <Footer />
       </div>
     </div>
