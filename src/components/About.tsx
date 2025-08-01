@@ -83,7 +83,7 @@ const About = () => {
             <img 
               src="/placeholder.png" 
               alt="Saint Paul Minnesota Skyline" 
-              className="w-full h-96 object-cover"
+              className="w-full h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-primary/20"></div>
             <div className="absolute bottom-6 left-6 text-white">
