@@ -2,7 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Users, Award, MapPin, Leaf } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 import AnimatedCounter from "@/components/AnimatedCounter";
-import placeholderImage from "@/assets/placeholder.png";
 
 const About = () => {
   const textAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -82,7 +81,7 @@ const About = () => {
             }`}
           >
             <img 
-              src={placeholderImage} 
+              src="/placeholder.png" 
               alt="Saint Paul Minnesota Skyline" 
               className="w-full h-96 object-cover"
             />
