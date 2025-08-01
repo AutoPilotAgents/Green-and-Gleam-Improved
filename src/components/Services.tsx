@@ -1,115 +1,157 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Droplets, Wrench, Leaf, ArrowRight, Scissors } from "lucide-react";
-import serviceIcon from "@/assets/gutter-service-icon.jpg";
+import { Droplets, Scissors, Leaf, Calendar } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 
 const Services = () => {
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const cardsAnimation = useScrollAnimation({ threshold: 0.1 });
-  const ctaAnimation = useScrollAnimation({ threshold: 0.3 });
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
+      element.scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
       });
     }
   };
 
-  const services = [
-    {
-      icon: <Droplets className="w-8 h-8 text-primary" />,
-      title: "Gutter Cleaning",
-      description: "Complete debris removal and thorough cleaning of your gutter system.",
-      price: "Get your quote"
-    },
-    {
-      icon: <Scissors className="w-8 h-8 text-primary" />,
-      title: "Lawnmowing",
-      description: "Professional lawn cutting and trimming for a pristine yard appearance.",
-      price: "Starting at $25"
-    },
-    {
-      icon: <Leaf className="w-8 h-8 text-primary" />,
-      title: "Custom Solutions",
-      description: "Have a land scaping job in mind ? shoot us a massage.",
-      price: "Contact Us"
-    }
-  ];
-
   return (
     <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div
+        <div 
           ref={headerAnimation.ref}
           className={`text-center mb-16 ${scrollAnimations.fadeInUp} ${
             headerAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
           }`}
         >
-          <div className="flex justify-center mb-6">
-            <img
-              src={serviceIcon}
-              alt="Gutter Services"
-              className="w-20 h-20 rounded-full shadow-card"
-            />
-          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Professional Gutter Services
+            Our Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive gutter solutions to protect your Saint Paul home from water damage
+            Professional gutter cleaning and lawn maintenance services tailored to your home's needs
           </p>
         </div>
-
-        <div
+        
+        <div 
           ref={cardsAnimation.ref}
-          className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 ${scrollAnimations.slideInUp} ${
+          className={`grid md:grid-cols-3 gap-8 max-w-6xl mx-auto ${scrollAnimations.slideInUp} ${
             cardsAnimation.isVisible ? scrollAnimations.slideInUpActive : scrollAnimations.slideInUpInitial
           }`}
         >
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className={`shadow-card hover:shadow-glow transition-all duration-500 border-border/50 hover:border-primary/30 hover:-translate-y-3 group ${scrollAnimations.scaleIn} ${
-                cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <CardHeader className="text-center pb-4">
-                <div className="flex justify-center mb-4 group-hover:animate-wiggle">
-                  {service.icon}
-                </div>
-                <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
-                  {service.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground mb-4">{service.description}</p>
-                <p className="text-lg font-semibold text-primary mb-4 group-hover:animate-pulse-glow">
-                  {service.price}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+          <Card 
+            className={`shadow-card hover:shadow-glow transition-all duration-500 border-border/50 hover:border-primary/30 hover:-translate-y-3 group ${scrollAnimations.scaleIn} ${
+              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
+            }`}
+          >
+            <CardHeader className="text-center pb-4">
+              <div className="flex justify-center mb-4 group-hover:animate-wiggle">
+                <Droplets className="w-8 h-8 text-primary" />
+              </div>
+              <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
+                Gutter Cleaning
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-muted-foreground mb-6">
+                Thorough cleaning of gutters and downspouts to prevent water damage and protect your home's foundation.
+              </p>
+              <ul className="text-left space-y-2 mb-6">
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Remove debris and buildup</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Flush with high-pressure water</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Inspect for damage</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+          
+          <Card 
+            className={`shadow-card hover:shadow-glow transition-all duration-500 border-border/50 hover:border-primary/30 hover:-translate-y-3 group ${scrollAnimations.scaleIn} ${
+              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
+            }`}
+          >
+            <CardHeader className="text-center pb-4">
+              <div className="flex justify-center mb-4 group-hover:animate-wiggle">
+                <Scissors className="w-8 h-8 text-primary" />
+              </div>
+              <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
+                Lawn Mowing
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-muted-foreground mb-6">
+                Professional lawn maintenance to keep your yard looking pristine throughout the growing season.
+              </p>
+              <ul className="text-left space-y-2 mb-6">
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Edge walkways and driveways</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Trim around trees and structures</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Blow grass clippings</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+          
+          <Card 
+            className={`shadow-card hover:shadow-glow transition-all duration-500 border-border/50 hover:border-primary/30 hover:-translate-y-3 group ${scrollAnimations.scaleIn} ${
+              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
+            }`}
+          >
+            <CardHeader className="text-center pb-4">
+              <div className="flex justify-center mb-4 group-hover:animate-wiggle">
+                <Leaf className="w-8 h-8 text-primary" />
+              </div>
+              <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
+                Eco-Friendly Add-ons
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-muted-foreground mb-6">
+                Sustainable solutions to enhance your home's protection and appearance.
+              </p>
+              <ul className="text-left space-y-2 mb-6">
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Gutter guards installation</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Downspout extensions</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Organic lawn treatments</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
-
-        <div
-          ref={ctaAnimation.ref}
-          className={`text-center ${scrollAnimations.fadeInUp} ${
-            ctaAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
-          }`}
-        >
-          <Button
+        
+        <div className="text-center mt-16">
+          <Button 
             variant="cta"
             size="lg"
             className="text-lg px-8 py-4"
-            onClick={scrollToContact}
+            onClick={() => scrollToSection('scheduling')}
           >
-            Get Your Free Estimate
-            <ArrowRight className="w-5 h-5" />
+            <Calendar className="w-5 h-5 mr-2" />
+            Book Your Service
           </Button>
         </div>
       </div>
