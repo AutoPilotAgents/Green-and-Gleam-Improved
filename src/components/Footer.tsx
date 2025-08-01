@@ -1,75 +1,91 @@
-"use client";
-
-import React from "react";
-import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <footer className="border-t">
-      <div className="container mx-auto px-4 py-10">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-          <div className="max-w-sm">
-            <h3 className="text-xl font-semibold mb-2">Green & Gleam</h3>
-            <p className="text-muted-foreground">
-              Eco-friendly cleaning services that make your home shine—inside and out.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <h4 className="font-medium mb-3">Company</h4>
-              <ul className="space-y-2 text-muted-foreground">
-                <li><a href="#about" className="hover:text-foreground transition-colors">About</a></li>
-                <li><a href="#services" className="hover:text-foreground transition-colors">Services</a></li>
-                <li><a href="#contact" className="hover:text-foreground transition-colors">Contact</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-medium mb-3">Support</h4>
-              <ul className="space-y-2 text-muted-foreground">
-                <li><a href="#faq" className="hover:text-foreground transition-colors">FAQ</a></li>
-                <li><a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a></li>
-                <li><a href="#terms" className="hover:text-foreground transition-colors">Terms</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-medium mb-3">Services</h4>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>Home Cleaning</li>
-                <li>Office Cleaning</li>
-                <li>Deep Cleaning</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-medium mb-3">Connect</h4>
-              <div className="flex items-center gap-2">
-                <Button variant="outline" size="icon" className="rounded-full" aria-label="Facebook">
-                  <Facebook className="w-4 h-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full" aria-label="Instagram">
-                  <Instagram className="w-4 h-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full" aria-label="LinkedIn">
-                  <Linkedin className="w-4 h-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full" aria-label="Email">
-                  <Mail className="w-4 h-4" />
-                </Button>
+    <footer className="bg-card border-t border-border">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="md:col-span-1">
+            <div className="flex items-center space-x-2 mb-4">
+              <img 
+                src="/android-chrome-192x192.png" 
+                alt="Green & Gleam Logo" 
+                className="w-8 h-8 rounded-full"
+              />
+              <div>
+                <h3 className="text-lg font-bold text-foreground">Green & Gleam</h3>
+                <p className="text-xs text-muted-foreground">Gutter Cleaning Experts</p>
               </div>
             </div>
+            <p className="text-muted-foreground text-sm mb-4">
+              Professional gutter cleaning services for residential and commercial properties in the Twin Cities area.
+            </p>
+            <div className="flex space-x-3">
+              <Button variant="outline" size="icon" className="rounded-full">
+                <Facebook className="w-4 h-4" />
+              </Button>
+              <Button variant="outline" size="icon" className="rounded-full">
+                <Instagram className="w-4 h-4" />
+              </Button>
+              <Button variant="outline" size="icon" className="rounded-full">
+                <Twitter className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-foreground">Services</h4>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Gutter Cleaning</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Gutter Repair</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Gutter Guard Installation</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Downspout Cleaning</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Commercial Services</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-foreground">Contact</h4>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <Phone className="w-4 h-4 text-primary mr-2 mt-0.5" />
+                <span className="text-muted-foreground text-sm">(651) 555-0123</span>
+              </li>
+              <li className="flex items-start">
+                <Mail className="w-4 h-4 text-primary mr-2 mt-0.5" />
+                <span className="text-muted-foreground text-sm">info@greengleam.com</span>
+              </li>
+              <li className="flex items-start">
+                <MapPin className="w-4 h-4 text-primary mr-2 mt-0.5" />
+                <span className="text-muted-foreground text-sm">Saint Paul, MN 55104</span>
+              </li>
+              <li className="flex items-start">
+                <Clock className="w-4 h-4 text-primary mr-2 mt-0.5" />
+                <span className="text-muted-foreground text-sm">Mon-Fri: 8AM-5PM</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-foreground">Service Area</h4>
+            <p className="text-muted-foreground text-sm mb-4">
+              Serving the entire Twin Cities metro area including:
+            </p>
+            <ul className="text-muted-foreground text-sm space-y-1">
+              <li>Saint Paul</li>
+              <li>Minneapolis</li>
+              <li>Stillwater</li>
+              <li>Hastings</li>
+              <li>Lake Elmo</li>
+            </ul>
           </div>
         </div>
-
-        <div className="mt-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Green & Gleam. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <a href="#privacy" className="hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="#terms" className="hover:text-foreground transition-colors">Terms of Service</a>
-          </div>
+        
+        <div className="border-t border-border mt-8 pt-8 text-center">
+          <p className="text-muted-foreground text-sm">
+            © {new Date().getFullYear()} Green & Gleam Gutter Cleaning. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
