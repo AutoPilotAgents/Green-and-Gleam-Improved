@@ -17,6 +17,12 @@ const Contact = () => {
     window.location.href = "mailto:info@greengleam.com";
   };
 
+  const handleCopyEmail = async () => {
+    const email = "info@greengleam.com";
+    await navigator.clipboard.writeText(email);
+    alert("Email copied to clipboard: " + email);
+  };
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -84,8 +90,8 @@ const Contact = () => {
             <CardContent className="text-center">
               <p className="text-lg font-semibold text-primary mb-2 group-hover:animate-pulse-glow">info@greengleam.com</p>
               <p className="text-muted-foreground">Get a written estimate</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleEmailClick}>
-                Send Email
+              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyEmail}>
+                Copy Email
               </RippleButton>
             </CardContent>
           </Card>
