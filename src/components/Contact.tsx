@@ -1,13 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CalendarDays } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 import RippleButton from "@/components/RippleButton";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const cardsAnimation = useScrollAnimation({ threshold: 0.1 });
   const hoursAnimation = useScrollAnimation({ threshold: 0.3 });
+  const navigate = useNavigate();
 
   const handleCallClick = () => {
     window.location.href = "tel:6515550123";
@@ -24,6 +26,10 @@ const Contact = () => {
     });
   };
 
+  const goToSchedule = () => {
+    navigate("/schedule");
+  };
+
   return (
     <section id="contact" className="py-20 bg-gradient-accent">
       <div className="container mx-auto px-4">
@@ -38,8 +44,14 @@ const Contact = () => {
           </h2>
           <p className="text-xl text-accent-foreground/80 max-w-2xl mx-auto">
             Contact Green & Gleam today for your free estimate and experience the difference 
-            professional gutter service makes.
+            professional service makes.
           </p>
+          <div className="mt-6 flex justify-center">
+            <Button variant="hero" size="lg" onClick={goToSchedule}>
+              <CalendarDays className="w-5 h-5" />
+              Schedule Now
+            </Button>
+          </div>
         </div>
         
         <div 
