@@ -32,11 +32,25 @@ const Footer = () => {
               Professional gutter cleaning services for residential and commercial properties in the Twin Cities area.
             </p>
             <div className="flex space-x-3">
-              <Button variant="outline" size="icon" className="rounded-full">
-                <Facebook className="w-4 h-4" />
+              <Button variant="outline" size="icon" className="rounded-full" asChild>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit our Facebook page"
+                >
+                  <Facebook className="w-4 h-4" />
+                </a>
               </Button>
-              <Button variant="outline" size="icon" className="rounded-full">
-                <Instagram className="w-4 h-4" />
+              <Button variant="outline" size="icon" className="rounded-full" asChild>
+                <a
+                  href="https://www.instagram.com/greengleam"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit our Instagram profile"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
               </Button>
             </div>
           </div>
