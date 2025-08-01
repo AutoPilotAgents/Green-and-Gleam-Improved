@@ -2,6 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Phone, MapPin } from "lucide-react";
 
 const Header = () => {
+  const smoothScroll = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <header className="bg-card/80 backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -23,7 +28,7 @@ const Header = () => {
             className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
             onClick={(e) => {
               e.preventDefault();
-              document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+              smoothScroll('services');
             }}
           >
             Services
@@ -33,7 +38,7 @@ const Header = () => {
             className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
             onClick={(e) => {
               e.preventDefault();
-              document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+              smoothScroll('about');
             }}
           >
             About
@@ -43,7 +48,7 @@ const Header = () => {
             className="text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
             onClick={(e) => {
               e.preventDefault();
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              smoothScroll('contact');
             }}
           >
             Contact
@@ -55,7 +60,7 @@ const Header = () => {
             <MapPin className="w-4 h-4" />
             <span>Saint Paul, MN</span>
           </div>
-          <Button variant="hero" size="sm">
+          <Button variant="hero" size="sm" onClick={() => smoothScroll('contact')}>
             <Phone className="w-4 h-4" />
             Call Now
           </Button>

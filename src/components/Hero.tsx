@@ -3,6 +3,11 @@ import { ArrowRight, Shield, Clock, Star } from "lucide-react";
 import heroImage from "@/assets/hero-gutter-cleaning.jpg";
 
 const Hero = () => {
+  const smoothScroll = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-hero">
       <div className="absolute inset-0 bg-black/40 z-10"></div>
@@ -33,7 +38,7 @@ const Hero = () => {
               variant="hero" 
               size="lg" 
               className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => smoothScroll('contact')}
             >
               Get Free Quote
               <ArrowRight className="w-5 h-5" />
@@ -42,7 +47,7 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-4 bg-white/10 border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => smoothScroll('services')}
             >
               View Services
             </Button>
