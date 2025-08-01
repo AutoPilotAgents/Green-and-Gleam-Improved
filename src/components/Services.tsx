@@ -14,25 +14,25 @@ const Services = () => {
       icon: <Droplets className="w-8 h-8 text-primary" />,
       title: "Gutter Cleaning",
       description: "Complete debris removal and thorough cleaning of your gutter system.",
-      price: "Starting at $149"
+      price: "Get your quote"
     },
     {
       icon: <Scissors className="w-8 h-8 text-primary" />,
       title: "Lawnmowing",
       description: "Professional lawn cutting and trimming for a pristine yard appearance.",
-      price: "Starting at $99"
+      price: "Starting at $25"
     },
     {
       icon: <Wrench className="w-8 h-8 text-primary" />,
       title: "Weed Walking",
       description: "Expert removal of weeds from walkways, driveways, and property edges.",
-      price: "Starting at $79"
+      price: "Starting at $10"
     },
     {
       icon: <Leaf className="w-8 h-8 text-primary" />,
-      title: "Eco-Friendly Solutions",
-      description: "Environmentally conscious cleaning products and sustainable practices.",
-      price: "Included"
+      title: "Custom Solutions",
+      description: "Have a land scaping job in mind ? shoot us a massage.",
+      price: "Contact Us"
     }
   ];
 
