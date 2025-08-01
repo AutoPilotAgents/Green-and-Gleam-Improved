@@ -88,7 +88,7 @@ const About = () => {
             <div className="absolute inset-0 bg-gradient-primary/20"></div>
             <div className="absolute bottom-6 left-6 text-white">
               <h3 className="text-2xl font-bold mb-2 text-primary drop-shadow-lg">Local Saint Paul Experts</h3>
-              <p className="text-white/90">Serving every neighborhood with pride</p>
+              <p className="text-white/90">Serving every neighborhood with care</p>
             </div>
           </div>
         </div>
