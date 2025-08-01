@@ -59,6 +59,7 @@ const Services = () => {
               </div>
               <p className="text-muted-foreground mb-6">
                 Thorough cleaning of gutters and downspouts to prevent water damage and protect your home's foundation.
+              </p>
               <ul className="text-left space-y-2 mb-6">
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
