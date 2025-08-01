@@ -10,8 +10,13 @@ const Contact = () => {
   const cardsAnimation = useScrollAnimation({ threshold: 0.1 });
   const hoursAnimation = useScrollAnimation({ threshold: 0.3 });
 
-  const handleCallClick = () => {
-    window.location.href = "tel:6515550123";
+  const handleCopyPhone = async () => {
+    const phoneDisplay = "(651) 555-CLEAN";
+    await navigator.clipboard.writeText(phoneDisplay);
+    toast({
+      title: "Phone number copied",
+      description: `${phoneDisplay} has been copied to your clipboard.`,
+    });
   };
 
   const handleCopyEmail = async () => {
@@ -69,8 +74,8 @@ const Contact = () => {
             <CardContent className="text-center">
               <p className="text-2xl font-bold text-primary mb-2 group-hover:animate-pulse-glow">(651) 555-CLEAN</p>
               <p className="text-muted-foreground">Speak with our experts</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCallClick}>
-                Call Now
+              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyPhone}>
+                Copy Number
               </RippleButton>
             </CardContent>
           </Card>
