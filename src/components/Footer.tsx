@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
@@ -37,9 +37,6 @@ const Footer = () => {
               </Button>
               <Button variant="outline" size="icon" className="rounded-full">
                 <Instagram className="w-4 h-4" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full">
-                <Twitter className="w-4 h-4" />
               </Button>
             </div>
           </div>
