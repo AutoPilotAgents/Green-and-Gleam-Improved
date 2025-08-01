@@ -10,9 +10,9 @@ const Services = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -20,29 +20,36 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div 
+        <div
           ref={headerAnimation.ref}
           className={`text-center mb-16 ${scrollAnimations.fadeInUp} ${
-            headerAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
+            headerAnimation.isVisible
+              ? scrollAnimations.fadeInUpActive
+              : scrollAnimations.fadeInUpInitial
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Our Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Professional gutter cleaning and lawn maintenance services tailored to your home's needs
+            Professional gutter cleaning and lawn maintenance services tailored to
+            your home's needs
           </p>
         </div>
-        
-        <div 
+
+        <div
           ref={cardsAnimation.ref}
           className={`grid md:grid-cols-3 gap-8 max-w-6xl mx-auto ${scrollAnimations.slideInUp} ${
-            cardsAnimation.isVisible ? scrollAnimations.slideInUpActive : scrollAnimations.slideInUpInitial
+            cardsAnimation.isVisible
+              ? scrollAnimations.slideInUpActive
+              : scrollAnimations.slideInUpInitial
           }`}
         >
-          <Card 
+          <Card
             className={`shadow-card hover:shadow-glow transition-all duration-500 border-border/50 hover:border-primary/30 hover:-translate-y-3 group ${scrollAnimations.scaleIn} ${
-              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
+              cardsAnimation.isVisible
+                ? scrollAnimations.scaleInActive
+                : scrollAnimations.scaleInInitial
             }`}
           >
             <CardHeader className="text-center pb-4">
@@ -58,7 +65,8 @@ const Services = () => {
                 <span className="text-2xl font-bold text-foreground">$99</span>
               </div>
               <p className="text-muted-foreground mb-6">
-                Thorough cleaning of gutters and downspouts to prevent water damage and protect your home's foundation.
+                Thorough cleaning of gutters and downspouts to prevent water damage and
+                protect your home's foundation.
               </p>
               <ul className="text-left space-y-2 mb-6">
                 <li className="flex items-center">
@@ -67,19 +75,17 @@ const Services = () => {
                 </li>
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
-                  <span>Flush with high-pressure water</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
                   <span>Inspect for damage</span>
                 </li>
               </ul>
             </CardContent>
           </Card>
-          
-          <Card 
+
+          <Card
             className={`shadow-card hover:shadow-glow transition-all duration-500 border-border/50 hover:border-primary/30 hover:-translate-y-3 group ${scrollAnimations.scaleIn} ${
-              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
+              cardsAnimation.isVisible
+                ? scrollAnimations.scaleInActive
+                : scrollAnimations.scaleInInitial
             }`}
           >
             <CardHeader className="text-center pb-4">
@@ -95,7 +101,8 @@ const Services = () => {
                 <span className="text-2xl font-bold text-foreground">$25</span>
               </div>
               <p className="text-muted-foreground mb-6">
-                Professional lawn maintenance to keep your yard looking pristine throughout the growing season.
+                Professional lawn maintenance to keep your yard looking pristine
+                throughout the growing season.
               </p>
               <ul className="text-left space-y-2 mb-6">
                 <li className="flex items-center">
@@ -113,10 +120,12 @@ const Services = () => {
               </ul>
             </CardContent>
           </Card>
-          
-          <Card 
+
+          <Card
             className={`shadow-card hover:shadow-glow transition-all duration-500 border-border/50 hover:border-primary/30 hover:-translate-y-3 group ${scrollAnimations.scaleIn} ${
-              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
+              cardsAnimation.isVisible
+                ? scrollAnimations.scaleInActive
+                : scrollAnimations.scaleInInitial
             }`}
           >
             <CardHeader className="text-center pb-4">
@@ -153,13 +162,13 @@ const Services = () => {
             </CardContent>
           </Card>
         </div>
-        
+
         <div className="text-center mt-16">
-          <Button 
+          <Button
             variant="cta"
             size="lg"
             className="text-lg px-8 py-4"
-            onClick={() => scrollToSection('scheduling')}
+            onClick={() => scrollToSection("scheduling")}
           >
             <Calendar className="w-5 h-5 mr-2" />
             Book Your Service
