@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Scissors, Droplets } from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 import { useEffect } from "react";
-import LeafBackground from "@/components/LeafBackground";
 
 // Declare the Cal global variable to fix TypeScript errors
 declare global {
@@ -92,9 +91,8 @@ const Scheduling = () => {
   }, []);
 
   return (
-    <section id="scheduling" className="relative py-20 bg-background overflow-hidden"> 
-      <LeafBackground />
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="scheduling" className="py-20 bg-background">
+      <div className="container mx-auto px-4">
         <div 
           ref={headerAnimation.ref}
           className={`text-center mb-16 ${scrollAnimations.fadeInUp} ${
