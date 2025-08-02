@@ -18,8 +18,22 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="services" className="relative py-20 bg-background overflow-hidden">
+      {/* Themed background layer */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+      >
+        {/* Soft gradient wash */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-forest/5 via-primary-emerald/5 to-primary-lime/5" />
+        {/* Subtle radial accents */}
+        <div className="absolute -top-32 -left-24 w-[360px] h-[360px] rounded-full bg-primary-emerald/10 blur-3xl animate-pulse-glow" />
+        <div className="absolute -bottom-40 -right-24 w-[420px] h-[420px] rounded-full bg-primary-lime/10 blur-3xl animate-pulse-glow" />
+        {/* Diagonal sheen */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/0 to-primary-emerald/5 opacity-60" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div
           ref={headerAnimation.ref}
           className={`text-center mb-16 ${scrollAnimations.fadeInUp} ${
