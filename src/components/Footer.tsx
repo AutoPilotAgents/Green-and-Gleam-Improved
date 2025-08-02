@@ -21,7 +21,13 @@ const Footer = () => {
               Professional gutter cleaning and lawn mowing services for residential and commercial properties in the Twin Cities area.
             </p>
             <div className="flex space-x-3">
-              <a href="#" aria-label="Facebook" className="hover:text-primary transition-colors">
+              <a
+                href="https://www.facebook.com/profile.php?id=61578779321115"
+                aria-label="Facebook"
+                className="hover:text-primary transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
               <a href="#" aria-label="Instagram" className="hover:text-primary transition-colors">
