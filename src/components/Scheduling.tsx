@@ -94,21 +94,64 @@ const Scheduling = () => {
     <section id="scheduling" className="py-20 bg-background relative overflow-hidden">
       {/* Floating leaves background effect */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/4 left-1/4 w-8 h-8 rounded-full bg-primary-lime/20 animate-float"></div>
-        <div className="absolute top-1/3 right-1/4 w-6 h-6 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-2/3 left-1/3 w-10 h-10 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 right-1/3 w-7 h-7 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-1/4 right-1/2 w-5 h-5 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '4s' }}></div>
-        <div className="absolute top-2/3 right-1/4 w-9 h-9 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '5s' }}></div>
-        <div className="absolute top-1/3 left-1/2 w-6 h-6 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '6s' }}></div>
-        <div className="absolute top-1/5 left-1/5 w-7 h-7 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute top-3/4 right-1/3 w-8 h-8 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute top-2/5 left-2/3 w-6 h-6 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '2.5s' }}></div>
-        <div className="absolute top-3/5 right-1/5 w-9 h-9 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '3.5s' }}></div>
-        <div className="absolute top-1/6 left-1/3 w-5 h-5 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '4.5s' }}></div>
-        <div className="absolute top-4/5 right-2/5 w-7 h-7 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '5.5s' }}></div>
-        <div className="absolute top-2/3 left-1/4 w-6 h-6 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '0.8s' }}></div>
-        <div className="absolute top-1/4 right-1/3 w-8 h-8 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '1.8s' }}></div>
+        {/* Row 1 */}
+        <div className="absolute top-[5%] left-[10%] w-6 h-6 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute top-[5%] left-[30%] w-8 h-8 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[5%] left-[50%] w-5 h-5 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-[5%] left-[70%] w-7 h-7 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-[5%] left-[90%] w-6 h-6 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '3s' }}></div>
+        
+        {/* Row 2 */}
+        <div className="absolute top-[15%] left-[20%] w-7 h-7 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-[15%] left-[40%] w-5 h-5 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute top-[15%] left-[60%] w-9 h-9 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '4.5s' }}></div>
+        <div className="absolute top-[15%] left-[80%] w-6 h-6 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '1.5s' }}></div>
+        
+        {/* Row 3 */}
+        <div className="absolute top-[25%] left-[10%] w-8 h-8 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '3.5s' }}></div>
+        <div className="absolute top-[25%] left-[30%] w-6 h-6 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '0.8s' }}></div>
+        <div className="absolute top-[25%] left-[50%] w-7 h-7 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '2.8s' }}></div>
+        <div className="absolute top-[25%] left-[70%] w-5 h-5 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '4.8s' }}></div>
+        <div className="absolute top-[25%] left-[90%] w-9 h-9 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '1.8s' }}></div>
+        
+        {/* Row 4 */}
+        <div className="absolute top-[35%] left-[20%] w-5 h-5 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '0.3s' }}></div>
+        <div className="absolute top-[35%] left-[40%] w-7 h-7 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '2.3s' }}></div>
+        <div className="absolute top-[35%] left-[60%] w-6 h-6 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '4.3s' }}></div>
+        <div className="absolute top-[35%] left-[80%] w-8 h-8 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '1.3s' }}></div>
+        
+        {/* Row 5 */}
+        <div className="absolute top-[45%] left-[10%] w-9 h-9 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '3.3s' }}></div>
+        <div className="absolute top-[45%] left-[30%] w-6 h-6 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '0.6s' }}></div>
+        <div className="absolute top-[45%] left-[50%] w-8 h-8 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '2.6s' }}></div>
+        <div className="absolute top-[45%] left-[70%] w-5 h-5 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '4.6s' }}></div>
+        <div className="absolute top-[45%] left-[90%] w-7 h-7 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '1.6s' }}></div>
+        
+        {/* Row 6 */}
+        <div className="absolute top-[55%] left-[20%] w-6 h-6 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '0.9s' }}></div>
+        <div className="absolute top-[55%] left-[40%] w-8 h-8 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '2.9s' }}></div>
+        <div className="absolute top-[55%] left-[60%] w-5 h-5 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '4.9s' }}></div>
+        <div className="absolute top-[55%] left-[80%] w-7 h-7 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '1.9s' }}></div>
+        
+        {/* Row 7 */}
+        <div className="absolute top-[65%] left-[10%] w-7 h-7 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '3.9s' }}></div>
+        <div className="absolute top-[65%] left-[30%] w-5 h-5 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '0.2s' }}></div>
+        <div className="absolute top-[65%] left-[50%] w-9 h-9 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '2.2s' }}></div>
+        <div className="absolute top-[65%] left-[70%] w-6 h-6 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '4.2s' }}></div>
+        <div className="absolute top-[65%] left-[90%] w-8 h-8 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '1.2s' }}></div>
+        
+        {/* Row 8 */}
+        <div className="absolute top-[75%] left-[20%] w-8 h-8 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '0.7s' }}></div>
+        <div className="absolute top-[75%] left-[40%] w-6 h-6 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '2.7s' }}></div>
+        <div className="absolute top-[75%] left-[60%] w-7 h-7 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '4.7s' }}></div>
+        <div className="absolute top-[75%] left-[80%] w-5 h-5 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '1.7s' }}></div>
+        
+        {/* Row 9 */}
+        <div className="absolute top-[85%] left-[10%] w-5 h-5 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '3.7s' }}></div>
+        <div className="absolute top-[85%] left-[30%] w-7 h-7 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '0.4s' }}></div>
+        <div className="absolute top-[85%] left-[50%] w-6 h-6 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '2.4s' }}></div>
+        <div className="absolute top-[85%] left-[70%] w-9 h-9 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '4.4s' }}></div>
+        <div className="absolute top-[85%] left-[90%] w-6 h-6 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '1.4s' }}></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
