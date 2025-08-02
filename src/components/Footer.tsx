@@ -33,7 +33,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               <a
-                href="https://www.facebook.com/profile.php?id=61574115453638"
+                href="https://www.facebook.com/profile.php?id=61578779321115"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit our Facebook"
