@@ -91,8 +91,27 @@ const Scheduling = () => {
   }, []);
 
   return (
-    <section id="scheduling" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="scheduling" className="py-20 bg-background relative overflow-hidden">
+      {/* Floating leaves background effect */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-primary-lime/10"
+            style={{
+              width: `${Math.random() * 20 + 10}px`,
+              height: `${Math.random() * 20 + 10}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animation: `float ${Math.random() * 10 + 10}s infinite ease-in-out`,
+              animationDelay: `${Math.random() * 5}s`,
+              transform: `rotate(${Math.random() * 360}deg)`,
+            }}
+          />
+        ))}
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div 
           ref={headerAnimation.ref}
           className={`text-center mb-16 ${scrollAnimations.fadeInUp} ${
