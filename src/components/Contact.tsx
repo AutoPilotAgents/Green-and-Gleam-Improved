@@ -20,7 +20,7 @@ const Contact = () => {
   };
 
   const handleCopyEmail = async () => {
-    const email = "info@greengleam.com";
+    const email = "info@greenandgleam.com";
     await navigator.clipboard.writeText(email);
     toast({
       title: "Email copied",
@@ -93,7 +93,7 @@ const Contact = () => {
               <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Email Us</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-lg font-semibold text-primary mb-2">info@greengleam.com</p>
+              <p className="text-lg font-semibold text-primary mb-2">info@greenandgleam.com</p>
               <p className="text-muted-foreground">Get a written estimate</p>
               <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyEmail}>
                 Copy Email
