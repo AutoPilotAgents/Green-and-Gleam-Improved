@@ -18,29 +18,7 @@ const Services = () => {
   };
 
   return (
-    <section
-      id="services"
-      className="py-20 bg-background relative overflow-hidden"
-    >
-      {/* Subtle radial gradient backdrop */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(132,204,22,0.08),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(16,185,129,0.06),transparent_55%)]" />
-      </div>
-
-      {/* Faint dots pattern */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-0 opacity-[0.07]">
-          <div className="w-full h-full [background:radial-gradient(circle,rgba(0,0,0,0.4)_1px,transparent_1px)] [background-size:24px_24px]" />
-        </div>
-      </div>
-
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div
           ref={headerAnimation.ref}
