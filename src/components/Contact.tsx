@@ -28,11 +28,11 @@ const Contact = () => {
     });
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  const scrollToScheduling = () => {
+    const el = document.getElementById("scheduling");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -116,8 +116,8 @@ const Contact = () => {
             <CardContent className="text-center">
               <p className="text-lg font-semibold text-primary mb-2">Twin Cities Metro Area, MN</p>
               <p className="text-muted-foreground">And surrounding areas</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={scrollToTop}>
-                Back to Top
+              <RippleButton variant="outline" className="mt-4 w-full" onClick={scrollToScheduling}>
+                Go to Schedule
               </RippleButton>
             </CardContent>
           </Card>
