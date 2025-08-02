@@ -147,7 +147,7 @@ const Services = () => {
                 <Leaf className="w-8 h-8 text-primary" />
               </div>
               <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
-                Eco-Friendly Add-ons
+                Custom Job
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
@@ -157,22 +157,33 @@ const Services = () => {
                 </span>
               </div>
               <p className="text-muted-foreground mb-6">
-                Sustainable solutions to enhance your home's protection and appearance.
+                Need something special? We can handle any gutter or lawn project you have in mind.
               </p>
               <ul className="text-left space-y-2 mb-6">
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
-                  <span>Gutter guards installation</span>
+                  <span>Gutter repair or replacement</span>
                 </li>
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
-                  <span>Downspout extensions</span>
+                  <span>Landscape maintenance</span>
                 </li>
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
-                  <span>Organic lawn treatments</span>
+                  <span>Seasonal cleanups</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Specialized services</span>
                 </li>
               </ul>
+              <Button 
+                variant="outline" 
+                className="w-full mt-4 group-hover:bg-primary group-hover:text-white transition-colors"
+                onClick={() => scrollToSection("contact")}
+              >
+                Request Custom Job
+              </Button>
             </CardContent>
           </Card>
         </div>
