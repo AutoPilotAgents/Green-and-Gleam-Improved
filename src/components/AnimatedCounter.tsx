@@ -1,52 +1,46 @@
-import { useEffect, useState } from 'react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useEffect, useRef, useState } from "react";
 
-interface AnimatedCounterProps {
-  end: number;
+type AnimatedCounterProps = {
+  from?: number;
+  to?: number;
   duration?: number;
   suffix?: string;
   className?: string;
-}
+};
 
-const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
-  end,
+const AnimatedCounter = ({
+  from = 0,
+  to = 100,
   duration = 2000,
-  suffix = '',
-  className = '',
-}) => {
-  const [count, setCount] = useState(0);
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.5 });
+  suffix = "",
+  className = "",
+}: AnimatedCounterProps) => {
+  const [count, setCount] = useState(from);
+  const ref = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
-    if (!isVisible) return;
-
-    let startTime: number;
+    let start: number | null = null;
     let animationFrame: number;
 
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.floor(easeOutQuart * end));
+    const step = (timestamp: number) => {
+      if (start === null) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const value = Math.floor(from + (to - from) * progress);
+      setCount(value);
 
       if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate);
+        animationFrame = requestAnimationFrame(step);
       }
     };
 
-    animationFrame = requestAnimationFrame(animate);
+    animationFrame = requestAnimationFrame(step);
 
-    return () => {
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-      }
-    };
-  }, [isVisible, end, duration]);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [from, to, duration]);
 
   return (
     <span ref={ref} className={className}>
-      {count}{suffix}
+      20+
     </span>
   );
 };
