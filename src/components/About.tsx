@@ -31,7 +31,9 @@ const About = () => {
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
-              We’re Teague and Sam, two 18-year-olds who treat your home like our own. Green and Gleam delivers reliable gutter cleaning and lawn mowing with old-fashioned courtesy—on time, tidy, and careful. We listen, work hard, and leave your place safer and looking its best. Local, insured, and easy to schedule. Let us handle the ladder and the lawn so you can relax and enjoy your home.
+              Green & Gleam has been the trusted choice for gutter cleaning and maintenance 
+              in the Twin Cities area for over a decade. We understand the unique challenges 
+              that Minnesota weather presents to your home's gutter system.
             </p>
             
             <p className="text-lg text-muted-foreground mb-8">
@@ -91,7 +93,8 @@ const About = () => {
                 </div>
               </div>
               <p className="text-muted-foreground italic">
-                I’m just getting started in the trades. I made Green & Gleam because I like working outside and doing hands-on work that actually makes a difference. You’ll find me mowing lawns, clearing gutters, or handling weed whacking. I take pride in showing up, working hard, and doing the job right. Outside of work, I’m into hiking and spending time with friends.
+                "I started Green & Gleam because I saw a need for reliable, eco-friendly gutter services in our community. 
+                Every home deserves proper protection, and we're committed to delivering that with a personal touch."
               </p>
             </div>
             
