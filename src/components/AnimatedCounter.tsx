@@ -1,47 +1,52 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-type AnimatedCounterProps = {
+interface AnimatedCounterProps {
   end: number;
   duration?: number;
   suffix?: string;
   className?: string;
-  fixedValue?: string; // optional override to display a fixed value like "20+"
-};
+}
 
 const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   end,
-  duration = 1500,
-  suffix = "",
-  className = "",
-  fixedValue,
+  duration = 2000,
+  suffix = '',
+  className = '',
 }) => {
   const [count, setCount] = useState(0);
-  const start = useRef<number | null>(null);
-  const ref = useRef<HTMLSpanElement | null>(null);
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.5 });
 
   useEffect(() => {
-    if (fixedValue) return; // skip animation if fixedValue is provided
+    if (!isVisible) return;
 
-    const step = (timestamp: number) => {
-      if (!start.current) start.current = timestamp;
-      const progress = timestamp - start.current;
-      const progressRatio = Math.min(progress / duration, 1);
-      const current = Math.floor(progressRatio * end);
-      setCount(current);
-      if (progress < duration) {
-        requestAnimationFrame(step);
-      } else {
-        setCount(end);
+    let startTime: number;
+    let animationFrame: number;
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(easeOutQuart * end));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
       }
     };
 
-    const raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [end, duration, fixedValue]);
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [isVisible, end, duration]);
 
   return (
     <span ref={ref} className={className}>
-      {fixedValue ? fixedValue : `${count}${suffix}`}
+      {count}{suffix}
     </span>
   );
 };
