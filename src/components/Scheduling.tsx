@@ -101,6 +101,14 @@ const Scheduling = () => {
         <div className="absolute top-1/4 right-1/2 w-5 h-5 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '4s' }}></div>
         <div className="absolute top-2/3 right-1/4 w-9 h-9 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '5s' }}></div>
         <div className="absolute top-1/3 left-1/2 w-6 h-6 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '6s' }}></div>
+        <div className="absolute top-1/5 left-1/5 w-7 h-7 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-3/4 right-1/3 w-8 h-8 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-2/5 left-2/3 w-6 h-6 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute top-3/5 right-1/5 w-9 h-9 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '3.5s' }}></div>
+        <div className="absolute top-1/6 left-1/3 w-5 h-5 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '4.5s' }}></div>
+        <div className="absolute top-4/5 right-2/5 w-7 h-7 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '5.5s' }}></div>
+        <div className="absolute top-2/3 left-1/4 w-6 h-6 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '0.8s' }}></div>
+        <div className="absolute top-1/4 right-1/3 w-8 h-8 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '1.8s' }}></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
