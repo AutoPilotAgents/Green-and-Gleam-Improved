@@ -46,7 +46,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
 
   return (
     <span ref={ref} className={className}>
-      {count}{suffix}
+      20+
     </span>
   );
 };
