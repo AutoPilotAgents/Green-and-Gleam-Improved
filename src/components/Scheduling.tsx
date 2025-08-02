@@ -91,8 +91,19 @@ const Scheduling = () => {
   }, []);
 
   return (
-    <section id="scheduling" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="scheduling" className="py-20 bg-background relative overflow-hidden">
+      {/* Floating leaves background effect */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-1/4 left-1/4 w-8 h-8 rounded-full bg-primary-lime/20 animate-float"></div>
+        <div className="absolute top-1/3 right-1/4 w-6 h-6 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-2/3 left-1/3 w-10 h-10 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 right-1/3 w-7 h-7 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/4 right-1/2 w-5 h-5 rounded-full bg-primary-emerald/20 animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-2/3 right-1/4 w-9 h-9 rounded-full bg-accent-mint/20 animate-float" style={{ animationDelay: '5s' }}></div>
+        <div className="absolute top-1/3 left-1/2 w-6 h-6 rounded-full bg-primary-lime/20 animate-float" style={{ animationDelay: '6s' }}></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div 
           ref={headerAnimation.ref}
           className={`text-center mb-16 ${scrollAnimations.fadeInUp} ${
