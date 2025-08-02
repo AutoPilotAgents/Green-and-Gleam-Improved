@@ -1,144 +1,94 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 import RippleButton from "@/components/RippleButton";
-import { toast } from "@/hooks/use-toast";
 
 const Contact = () => {
-  const headerAnimation = useScrollAnimation({ threshold: 0.2 });
-  const cardsAnimation = useScrollAnimation({ threshold: 0.1 });
-  const hoursAnimation = useScrollAnimation({ threshold: 0.3 });
-
-  const handleCopyPhone = async () => {
-    const phoneDisplay = "(651) 555-CLEAN";
-    await navigator.clipboard.writeText(phoneDisplay);
-    toast({
-      title: "Phone number copied",
-      description: `${phoneDisplay} has been copied to your clipboard.`,
-    });
-  };
-
-  const handleCopyEmail = async () => {
-    const email = "info@greengleam.com";
-    await navigator.clipboard.writeText(email);
-    toast({
-      title: "Email copied",
-      description: `${email} has been copied to your clipboard.`,
-    });
-  };
+  const formAnimation = useScrollAnimation({ threshold: 0.2 });
+  const infoAnimation = useScrollAnimation({ threshold: 0.2 });
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    const header = document.getElementById("header");
+    if (header) {
+      header.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-accent">
+    <section id="contact" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <div 
-          ref={headerAnimation.ref}
-          className={`text-center mb-16 ${scrollAnimations.fadeInUp} ${
-            headerAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
-          }`}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-accent-foreground mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-accent-foreground/80 max-w-2xl mx-auto">
-            Contact Green & Gleam today for your free estimate and experience the difference 
-            professional gutter service makes.
-          </p>
-        </div>
-        
-        <div 
-          ref={cardsAnimation.ref}
-          className={`grid lg:grid-cols-3 gap-8 mb-12 ${scrollAnimations.slideInUp} ${
-            cardsAnimation.isVisible ? scrollAnimations.slideInUpActive : scrollAnimations.slideInUpInitial
-          }`}
-        >
-          <Card 
-            className={`shadow-card border-border/50 hover:shadow-glow transition-all duration-500 hover:-translate-y-2 group ${scrollAnimations.scaleIn} ${
-              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
+        <div className="grid lg:grid-cols-2 gap-12">
+          <div
+            ref={formAnimation.ref}
+            className={`${scrollAnimations.fadeInLeft} ${
+              formAnimation.isVisible ? scrollAnimations.fadeInLeftActive : scrollAnimations.fadeInLeftInitial
             }`}
-            style={{ transitionDelay: '0ms' }}
           >
-            <CardHeader className="text-center">
-              <div className="flex justify-center mb-4 group-hover:animate-bounce-gentle">
-                <Phone className="w-8 h-8 text-primary" />
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Get in <span className="text-primary">Touch</span>
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Have questions about our services or ready to schedule? Send us a message and we'll get back to you promptly.
+            </p>
+
+            <form className="bg-white rounded-2xl shadow-card p-6 space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <Input placeholder="Your Name" />
+                <Input type="email" placeholder="Email Address" />
               </div>
-              <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Call Us Today</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-xl font-semibold text-primary mb-2">(651) 555-CLEAN</p>
-              <p className="text-muted-foreground">Speak with our experts</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyPhone}>
-                Copy Number
+              <Input placeholder="Subject" />
+              <Textarea placeholder="Your Message" className="min-h-[150px]" />
+              <RippleButton className="w-full">
+                Send Message
               </RippleButton>
-            </CardContent>
-          </Card>
-          
-          <Card 
-            className={`shadow-card border-border/50 hover:shadow-glow transition-all duration-500 hover:-translate-y-2 group ${scrollAnimations.scaleIn} ${
-              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
+            </form>
+          </div>
+
+          <div
+            ref={infoAnimation.ref}
+            className={`${scrollAnimations.fadeInRight} ${
+              infoAnimation.isVisible ? scrollAnimations.fadeInRightActive : scrollAnimations.fadeInRightInitial
             }`}
-            style={{ transitionDelay: '150ms' }}
           >
-            <CardHeader className="text-center">
-              <div className="flex justify-center mb-4 group-hover:animate-bounce-gentle">
-                <Mail className="w-8 h-8 text-primary" />
+            <div className="bg-white rounded-2xl shadow-card p-6 space-y-6">
+              <div className="flex items-center gap-3">
+                <Mail className="w-6 h-6 text-primary" />
+                <div>
+                  <p className="font-semibold">Email</p>
+                  <p className="text-muted-foreground">hello@greenandgleam.com</p>
+                </div>
               </div>
-              <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Email Us</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-lg font-semibold text-primary mb-2">info@greengleam.com</p>
-              <p className="text-muted-foreground">Get a written estimate</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyEmail}>
-                Copy Email
-              </RippleButton>
-            </CardContent>
-          </Card>
-          
-          <Card 
-            className={`shadow-card border-border/50 hover:shadow-glow transition-all duration-500 hover:-translate-y-2 group ${scrollAnimations.scaleIn} ${
-              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
-            }`}
-            style={{ transitionDelay: '300ms' }}
-          >
-            <CardHeader className="text-center">
-              <div className="flex justify-center mb-4 group-hover:animate-bounce-gentle">
-                <MapPin className="w-8 h-8 text-primary" />
+
+              <div className="flex items-center gap-3">
+                <Phone className="w-6 h-6 text-primary" />
+                <div>
+                  <p className="font-semibold">Phone</p>
+                  <p className="text-muted-foreground">(651) 555-1234</p>
+                </div>
               </div>
-              <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Service Area</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-lg font-semibold text-primary mb-2">Saint Paul, MN</p>
-              <p className="text-muted-foreground">And surrounding areas</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={scrollToTop}>
-                Back to Top
-              </RippleButton>
-            </CardContent>
-          </Card>
-        </div>
-        
-        <Card 
-          ref={hoursAnimation.ref}
-          className={`shadow-primary border-border/50 bg-card/50 backdrop-blur-sm ${scrollAnimations.fadeInUp} ${
-            hoursAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
-          }`}
-        >
-          <CardContent className="p-8">
-            <div className="flex items-center justify-center space-x-4 text-muted-foreground">
-              <Clock className="w-5 h-5" />
-              <span className="text-lg">
-                <strong className="text-foreground">Business Hours:</strong> 
-                Monday - Saturday: 7:00 AM - 6:00 PM | Sunday: Emergency Service Only
-              </span>
+
+              <div className="flex items-start gap-3">
+                <MapPin className="w-6 h-6 text-primary mt-1" />
+                <div>
+                  <p className="font-semibold">Service Area</p>
+                  <Card className="mt-2">
+                    <CardContent className="text-center">
+                      <p className="text-lg font-semibold text-primary mb-2">Twin Cities Metro Area, MN</p>
+                      <p className="text-muted-foreground">And surrounding areas</p>
+                      <RippleButton variant="outline" className="mt-4 w-full" onClick={scrollToTop}>
+                        Back to Top
+                      </RippleButton>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </section>
   );
