@@ -177,13 +177,6 @@ const Services = () => {
                   <span>Specialized services</span>
                 </li>
               </ul>
-              <Button 
-                variant="outline" 
-                className="w-full mt-4 group-hover:bg-primary group-hover:text-white transition-colors"
-                onClick={() => scrollToSection("contact")}
-              >
-                Request Custom Job
-              </Button>
             </CardContent>
           </Card>
         </div>
