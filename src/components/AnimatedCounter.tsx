@@ -1,56 +1,52 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-type AnimatedCounterProps = {
-  from?: number;
-  to?: number;
+interface AnimatedCounterProps {
+  end: number;
   duration?: number;
-  className?: string;
   suffix?: string;
-};
+  className?: string;
+}
 
-const AnimatedCounter = ({
-  from = 0,
-  to = 100,
-  duration = 1500,
-  className,
-  suffix = "",
-}: AnimatedCounterProps) => {
-  const ref = useRef<HTMLSpanElement | null>(null);
-  const [count, setCount] = useState(from);
+const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
+  end,
+  duration = 2000,
+  suffix = '',
+  className = '',
+}) => {
+  const [count, setCount] = useState(0);
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.5 });
 
   useEffect(() => {
-    if (!ref.current) return;
-    let start: number | null = null;
-    const startValue = from;
-    const endValue = to;
+    if (!isVisible) return;
 
-    const step = (timestamp: number) => {
-      if (start === null) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const value = Math.floor(startValue + (endValue - startValue) * progress);
-      setCount(value);
+    let startTime: number;
+    let animationFrame: number;
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(easeOutQuart * end));
+
       if (progress < 1) {
-        requestAnimationFrame(step);
+        animationFrame = requestAnimationFrame(animate);
       }
     };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          requestAnimationFrame(step);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
+    animationFrame = requestAnimationFrame(animate);
 
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [from, to, duration]);
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [isVisible, end, duration]);
 
   return (
     <span ref={ref} className={className}>
-      {20}{suffix}
+      {count}{suffix}
     </span>
   );
 };
