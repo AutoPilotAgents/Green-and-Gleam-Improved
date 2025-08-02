@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import RippleButton from "@/components/RippleButton";
 
 const Contact = () => {
-  const phoneNumber = "‪(612) 460-8805‬";
+  const phoneNumber = "(612) 460-8805‬";
   const email = "info@greengleam.com";
 
   const handleCopyPhone = () => {
@@ -26,7 +26,7 @@ const Contact = () => {
               <CardTitle className="text-foreground">Call Us</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-xl font-semibold text-primary mb-2">You're all caught up<br />Call as ‪(612) 460-8805‬</p>
+              <p className="text-xl font-semibold text-primary mb-2">(612) 460-8805‬</p>
               <p className="text-muted-foreground">Speak with our experts</p>
               <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyPhone}>
                 Copy Number
