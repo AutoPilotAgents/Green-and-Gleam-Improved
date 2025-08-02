@@ -30,7 +30,13 @@ const Footer = () => {
               >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" aria-label="Instagram" className="hover:text-primary transition-colors">
+              <a
+                href="https://www.instagram.com/greenandgleamco/?utm_source=ig_web_button_share_sheet"
+                aria-label="Instagram"
+                className="hover:text-primary transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
