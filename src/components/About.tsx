@@ -91,8 +91,7 @@ const About = () => {
                 </div>
               </div>
               <p className="text-muted-foreground italic">
-                "I started Green & Gleam because I saw a need for reliable, eco-friendly gutter services in our community. 
-                Every home deserves proper protection, and we're committed to delivering that with a personal touch."
+                I’m just getting started in the trades. I made Green & Gleam because I like working outside and doing hands-on work that actually makes a difference. You’ll find me mowing lawns, clearing gutters, or handling weed whacking. I take pride in showing up, working hard, and doing the job right. Outside of work, I’m into hiking and spending time with friends.
               </p>
             </div>
             
