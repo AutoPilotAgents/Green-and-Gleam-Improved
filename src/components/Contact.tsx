@@ -11,7 +11,7 @@ const Contact = () => {
   const hoursAnimation = useScrollAnimation({ threshold: 0.3 });
 
   const handleCopyPhone = async () => {
-    const phoneDisplay = "(651) 555-CLEAN";
+    const phoneDisplay = "(612) 460-8805‬";
     await navigator.clipboard.writeText(phoneDisplay);
     toast({
       title: "Phone number copied",
@@ -72,7 +72,7 @@ const Contact = () => {
               <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Call Us Today</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-xl font-semibold text-primary mb-2">(651) 555-CLEAN</p>
+              <p className="text-xl font-semibold text-primary mb-2">(612) 460-8805‬</p>
               <p className="text-muted-foreground">Speak with our experts</p>
               <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyPhone}>
                 Copy Number
