@@ -114,7 +114,7 @@ const Contact = () => {
               <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Service Area</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-lg font-semibold text-primary mb-2">Saint Paul, MN</p>
+              <p className="text-lg font-semibold text-primary mb-2">Twin Cities Metro Area, MN</p>
               <p className="text-muted-foreground">And surrounding areas</p>
               <RippleButton variant="outline" className="mt-4 w-full" onClick={scrollToTop}>
                 Back to Top
