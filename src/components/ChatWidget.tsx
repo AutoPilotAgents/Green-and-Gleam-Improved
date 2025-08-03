@@ -14,7 +14,7 @@ const ChatWidget = () => {
   }, []);
 
   useEffect(() => {
-    const webhookUrl = "https://teaguewins.app.n8n.cloud/webhook/091748d5-ef40-4a83-a1d9-c1a5eb8f0089/chat";
+    const webhookUrl = "https://teaguewins.app.n8n.cloud/webhook/5a04f6d1-1670-44b6-89fe-e00e36de87ac/chat";
     const suggestedMessages = [
       "What services do you offer?",
       "Can I schedule a call?",
