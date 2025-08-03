@@ -134,7 +134,7 @@ const Contact = () => {
               <Clock className="w-5 h-5" />
               <span className="text-lg">
                 <strong className="text-foreground">Business Hours:</strong> 
-                Monday - Saturday: 7:00 AM - 6:00 PM | Sunday: Emergency Service Only
+                 Monday - Saturday: 9:00 AM - 8:00 PM | Sunday: Emergency Service Only
               </span>
             </div>
           </CardContent>
