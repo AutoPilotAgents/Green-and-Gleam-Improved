@@ -88,8 +88,8 @@ const About = () => {
                   className="w-16 h-16 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">Jake Thompson</h3>
-                  <p className="text-primary">Founder & Lead Technician</p>
+                  <h3 className="text-xl font-bold text-foreground">Sam Putzer</h3>
+                  <p className="text-primary">Co-Founder</p>
                 </div>
               </div>
               <p className="text-muted-foreground italic">
@@ -106,7 +106,7 @@ const About = () => {
                   className="w-16 h-16 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">Sarah Johnson</h3>
+                  <h3 className="text-xl font-bold text-foreground">Teague Winsell</h3>
                   <p className="text-primary">Operations Manager</p>
                 </div>
               </div>
