@@ -107,7 +107,7 @@ const About = () => {
                 />
                 <div>
                   <h3 className="text-xl font-bold text-foreground">Teague Winsell</h3>
-                  <p className="text-primary">Operations Manager</p>
+                  <p className="text-primary">Co-Founder</p>
                 </div>
               </div>
               <p className="text-muted-foreground italic">
