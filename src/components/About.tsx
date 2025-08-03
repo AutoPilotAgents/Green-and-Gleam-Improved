@@ -111,7 +111,7 @@ const About = () => {
                 </div>
               </div>
               <p className="text-muted-foreground italic">
-                "Our customers aren't just clients - they're our neighbors. That's why we go above and beyond to ensure 
+                "Our customers aren't just clients, they're our neighbors. That's why we go above and beyond to ensure 
                 every job is completed with precision and care, using only environmentally safe methods."
               </p>
             </div>
