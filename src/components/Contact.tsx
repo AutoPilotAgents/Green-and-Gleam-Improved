@@ -133,8 +133,8 @@ const Contact = () => {
             <div className="flex items-center justify-center space-x-4 text-muted-foreground">
               <Clock className="w-5 h-5" />
               <span className="text-lg">
-                <strong className="text-foreground">Business Hours:</strong> 
-                 Monday - Saturday: 9:00 AM - 8:00 PM | Sunday: Emergency Service Only
+                <strong className="text-foreground">Business Hours: </strong> 
+                 Monday - Sunday: 9:00 AM - 8:00 PM
               </span>
             </div>
           </CardContent>
