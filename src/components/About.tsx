@@ -11,7 +11,7 @@ const About = () => {
   const stats = [
     { icon: <Users className="w-6 h-6" />, number: 20, label: "Happy Customers", suffix: "+" },
     { icon: <Award className="w-6 h-6" />, number: 10, label: "Years Experience", suffix: "+" },
-    { icon: <MapPin className="w-6 h-6" />, number: 10, label: "Saint Paul Neighborhoods", suffix: "+" },
+    { icon: <MapPin className="w-6 h-6" />, number: 8, label: "Saint Paul Neighborhoods", suffix: "+" },
     { icon: <Leaf className="w-6 h-6" />, number: 100, label: "Eco-Friendly", suffix: "%" }
   ];
 
