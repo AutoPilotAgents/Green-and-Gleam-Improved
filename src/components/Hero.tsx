@@ -34,8 +34,8 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl text-white/90 mb-8 max-w-2xl">
-            Professional gutter cleaning and maintenance services in Saint Paul, Minnesota. 
-            Protecting your home with eco-friendly solutions and expert craftsmanship.
+            Pro level gutter cleaning and maintenance services in Saint Paul, Minnesota. 
+            Protecting your home with eco-friendly solutions and craftsmanship.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
