@@ -1,116 +1,223 @@
-"use client";
-
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { 
-  Leaf, 
-  Scissors, 
-  Droplets, 
-  Sun, 
-  TreePine, 
-  Flower2,
-  ArrowRight
-} from "lucide-react";
-import { useNavigate } from "react-router-dom";
-
-const services = [
-  {
-    icon: Leaf,
-    title: "Landscape Design",
-    description: "Custom outdoor living spaces designed to reflect your personal style and enhance your property's natural beauty.",
-    features: ["3D Renderings", "Plant Selection", "Hardscaping Plans"]
-  },
-  {
-    icon: Scissors,
-    title: "Lawn Care",
-    description: "Professional lawn maintenance services to keep your grass healthy, green, and perfectly manicured year-round.",
-    features: ["Mowing", "Edging", "Fertilization"]
-  },
-  {
-    icon: Droplets,
-    title: "Irrigation Systems",
-    description: "Efficient watering solutions that conserve water while keeping your landscape lush and vibrant.",
-    features: ["System Installation", "Repairs", "Upgrades"]
-  },
-  {
-    icon: Sun,
-    title: "Garden Maintenance",
-    description: "Seasonal care and upkeep to ensure your garden thrives throughout the year with minimal effort.",
-    features: ["Pruning", "Weeding", "Mulching"]
-  },
-  {
-    icon: TreePine,
-    title: "Tree Services",
-    description: "Expert tree care including planting, pruning, and removal to maintain the health and safety of your property.",
-    features: ["Trimming", "Planting", "Removal"]
-  },
-  {
-    icon: Flower2,
-    title: "Flower Beds",
-    description: "Beautiful, colorful flower arrangements designed and maintained to add vibrant life to your landscape.",
-    features: ["Design", "Planting", "Seasonal Updates"]
-  }
-];
+import { Droplets, Scissors, Leaf, Calendar } from "lucide-react";
+import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
 
 const Services = () => {
-  const navigate = useNavigate();
+  const headerAnimation = useScrollAnimation({ threshold: 0.2 });
+  const cardsAnimation = useScrollAnimation({ threshold: 0.1 });
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-forest mb-4">
-            Our Premium Services
+    <section id="services" className="relative py-20 bg-background overflow-hidden">
+      {/* Themed background layer */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+      >
+        {/* Soft gradient wash */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-forest/5 via-primary-emerald/5 to-primary-lime/5" />
+        {/* Subtle radial accents */}
+        <div className="absolute -top-32 -left-24 w-[360px] h-[360px] rounded-full bg-primary-emerald/10 blur-3xl animate-pulse-glow" />
+        <div className="absolute -bottom-40 -right-24 w-[420px] h-[420px] rounded-full bg-primary-lime/10 blur-3xl animate-pulse-glow" />
+        {/* Diagonal sheen */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/0 to-primary-emerald/5 opacity-60" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div
+          ref={headerAnimation.ref}
+          className={`text-center mb-16 ${scrollAnimations.fadeInUp} ${
+            headerAnimation.isVisible
+              ? scrollAnimations.fadeInUpActive
+              : scrollAnimations.fadeInUpInitial
+          }`}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Professional Gutter Cleaning & Lawn Mowing Services
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Comprehensive landscaping solutions tailored to transform your outdoor space into a stunning oasis
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Expert exterior care services tailored to Saint Paul and Twin Cities homes
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <div 
-                key={index} 
-                className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-all duration-300 border border-gray-100"
-              >
-                <div className="w-16 h-16 bg-primary-emerald/10 rounded-full flex items-center justify-center mb-6">
-                  <Icon className="w-8 h-8 text-primary-emerald" />
-                </div>
-                <h3 className="text-xl font-bold text-primary-forest mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  {service.description}
-                </p>
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="bg-gradient-to-r from-primary-forest to-primary-emerald rounded-2xl p-8 md:p-12 text-white text-center">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Ready to Transform Your Outdoor Space?
-          </h3>
-          <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-            Schedule a consultation with our expert team today and let us create the landscape of your dreams.
-          </p>
-          <Button
-            variant="hero-secondary"
-            size="lg"
-            className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-            onClick={() => navigate('/contact')}
+        <div
+          ref={cardsAnimation.ref}
+          className={`grid md:grid-cols-3 gap-8 max-w-6xl mx-auto ${scrollAnimations.slideInUp} ${
+            cardsAnimation.isVisible
+              ? scrollAnimations.slideInUpActive
+              : scrollAnimations.slideInUpInitial
+          }`}
+        >
+          <Card
+            className={`shadow-card hover:shadow-glow transition-all duration-500 border-border/50 hover:border-primary/30 hover:-translate-y-3 group ${scrollAnimations.scaleIn} ${
+              cardsAnimation.isVisible
+                ? scrollAnimations.scaleInActive
+                : scrollAnimations.scaleInInitial
+            }`}
           >
-            Get Started Today
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <CardHeader className="text-center pb-4">
+              <div className="flex justify-center mb-4 group-hover:animate-wiggle">
+                <Droplets className="w-8 h-8 text-primary" />
+              </div>
+              <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
+                Gutter Cleaning Saint Paul
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <div className="flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-foreground">$99</span>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Thorough cleaning of gutters and downspouts to prevent water damage and
+                protect your home's foundation in Minnesota's climate.
+              </p>
+              <ul className="text-left space-y-2 mb-6">
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Remove debris and buildup</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Flush all downspouts</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Inspect for damage</span>
+                </li>
+              </ul>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => scrollToSection("scheduling")}
+                aria-label="Book gutter cleaning service"
+              >
+                Book Service
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card
+            className={`shadow-card hover:shadow-glow transition-all duration-500 border-border/50 hover:border-primary/30 hover:-translate-y-3 group ${scrollAnimations.scaleIn} ${
+              cardsAnimation.isVisible
+                ? scrollAnimations.scaleInActive
+                : scrollAnimations.scaleInInitial
+            }`}
+          >
+            <CardHeader className="text-center pb-4">
+              <div className="flex justify-center mb-4 group-hover:animate-wiggle">
+                <Scissors className="w-8 h-8 text-primary" />
+              </div>
+              <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
+                Lawn Mowing Service
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <div className="flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-foreground">$25</span>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Professional lawn maintenance to keep your yard looking pristine
+                throughout Minnesota's growing season.
+              </p>
+              <ul className="text-left space-y-2 mb-6">
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Edge walkways and driveways</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Trim around trees and structures</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Blow grass clippings</span>
+                </li>
+              </ul>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => scrollToSection("scheduling")}
+                aria-label="Book lawn mowing service"
+              >
+                Book Service
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card
+            className={`shadow-card hover:shadow-glow transition-all duration-500 border-border/50 hover:border-primary/30 hover:-translate-y-3 group ${scrollAnimations.scaleIn} ${
+              cardsAnimation.isVisible
+                ? scrollAnimations.scaleInActive
+                : scrollAnimations.scaleInInitial
+            }`}
+          >
+            <CardHeader className="text-center pb-4">
+              <div className="flex justify-center mb-4 group-hover:animate-wiggle">
+                <Leaf className="w-8 h-8 text-primary" />
+              </div>
+              <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
+                Custom Jobs
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <div className="mb-4">
+                <span className="inline-block px-3 py-1 bg-primary-lime/20 text-primary-lime rounded-full text-sm font-medium">
+                  Contact Us for Pricing
+                </span>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Need something special? We can handle any gutter or lawn project you have in mind.
+              </p>
+              <ul className="text-left space-y-2 mb-6">
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Gutter repair or replacement</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Landscape maintenance</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Seasonal cleanups</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Specialized services</span>
+                </li>
+              </ul>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => scrollToSection("contact")}
+                aria-label="Contact us for custom jobs"
+              >
+                Contact Us
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="text-center mt-16">
+          <Button
+            variant="cta"
+            size="lg"
+            className="text-lg px-8 py-4"
+            onClick={() => scrollToSection("scheduling")}
+            aria-label="Book your exterior care service"
+          >
+            <Calendar className="w-5 h-5 mr-2" />
+            Book Your Service
           </Button>
         </div>
       </div>
