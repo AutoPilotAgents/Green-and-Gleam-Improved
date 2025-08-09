@@ -1,18 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Clock, Star } from "lucide-react";
-import heroImage from "@/assets/hero-gutter-cleaning.jpg";
+"use client";
+
+import React from 'react';
+import { Calendar, Clock, MapPin, Phone } from 'lucide-react';
+import heroImage from '../assets/hero-image.jpg';
+import { Button } from './ui/button';
 
 const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-hero">
       <div className="absolute inset-0 bg-black/40 z-10"></div>
@@ -21,53 +14,43 @@ const Hero = () => {
         style={{ backgroundImage: `url(${heroImage})` }}
       ></div>
       
-      <div className="container mx-auto px-4 py-20 relative z-20">
-        <div className="max-w-3xl">
-          <div className="flex items-center space-x-2 mb-6">
-            <Shield className="w-6 h-6 text-primary-lime" />
-            <span className="text-primary-lime font-semibold">Trusted Local Experts</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Gutter Cleaning & Lawn Mowing in Saint Paul MN
+      <div className="container mx-auto px-4 relative z-20">
+        <div className="max-w-2xl">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Gleam & Green Landscaping
           </h1>
-          
-          <p className="text-xl text-white/90 mb-8 max-w-2xl">
-            Professional exterior care services in Saint Paul and the Twin Cities metro area. 
-            Eco-friendly solutions with same-day service by local experts Sam & Teague.
+          <p className="text-xl text-white mb-8">
+            Transform your outdoor space with our expert landscaping services
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-              onClick={() => scrollToSection('scheduling')}
-              aria-label="Schedule your gutter cleaning or lawn mowing service"
-            >
-              Schedule Now
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="relative inline-block">
+              <div className="absolute -inset-2 rounded-lg bg-emerald-500 opacity-70 blur-lg animate-pulse"></div>
+              <Button 
+                size="lg" 
+                className="relative bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
+              >
+                Schedule Now
+              </Button>
+            </div>
+            
             <Button 
               variant="outline" 
               size="lg" 
-              className="text-lg px-8 py-4 bg-white/10 border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
-              onClick={() => scrollToSection('services')}
-              aria-label="View all our services"
+              className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 px-8 py-3 rounded-lg font-semibold text-lg"
             >
               View Services
             </Button>
           </div>
-          
-          <div className="flex items-center space-x-8 text-white/90">
-            <div className="flex items-center space-x-2">
-              <Clock className="w-5 h-5 text-primary-lime" />
-              <span>Same Day Service</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Star className="w-5 h-5 text-primary-lime" />
-              <span>5-Star Rated</span>
-            </div>
+        </div>
+      </div>
+      
+      {/* Floating contact info */}
+      <div className="absolute bottom-8 right-8 hidden md:block">
+        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div className="flex items-center space-x-3 text-white">
+            <Phone className="w-5 h-5" />
+            <span className="font-medium">(555) 123-4567</span>
           </div>
         </div>
       </div>
