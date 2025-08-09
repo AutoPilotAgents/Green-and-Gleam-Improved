@@ -40,6 +40,12 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <div className="relative">
               <div className="absolute -inset-2 rounded-lg bg-primary-lime blur-lg opacity-70 animate-pulse"></div>
+              <div className="absolute inset-0 rounded-lg">
+                <div className="absolute w-full h-full rounded-lg">
+                  <div className="absolute top-0 left-1/2 w-4 h-4 bg-white rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-orbit"></div>
+                  <div className="absolute top-0 left-1/2 w-4 h-4 bg-white rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-orbit-delay"></div>
+                </div>
+              </div>
               <Button 
                 variant="hero" 
                 size="lg" 
