@@ -38,12 +38,18 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <div className="relative">
+            <div className="relative group">
               <div className="absolute -inset-2 rounded-lg bg-primary-lime blur-lg opacity-70 animate-pulse"></div>
+              <div className="absolute inset-0 rounded-[10px] border-2 border-transparent animate-orbit opacity-80 group-hover:opacity-100" 
+                   style={{
+                     background: 'conic-gradient(transparent, #a7f3d0, transparent)',
+                     animation: 'orbit 3s linear infinite',
+                     mask: 'radial-gradient(black 60%, transparent 60%)'
+                   }}></div>
               <Button 
                 variant="hero" 
                 size="lg" 
-                className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300 relative z-10"
+                className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300 relative z-10 bg-primary-lime text-primary-forest hover:bg-primary-lime/90"
                 onClick={() => scrollToSection('scheduling')}
                 aria-label="Schedule your gutter cleaning or lawn mowing service"
               >
