@@ -12,7 +12,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-foreground text-background py-12">
+    <footer className="bg-foreground text-background py-12" role="contentinfo">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8">
           <div>
@@ -23,7 +23,7 @@ const Footer = () => {
             <div className="flex space-x-3">
               <a
                 href="https://www.facebook.com/profile.php?id=61578779321115"
-                aria-label="Facebook"
+                aria-label="Green & Gleam Facebook"
                 className="hover:text-primary transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -32,7 +32,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://www.instagram.com/greenandgleamco/?utm_source=ig_web_button_share_sheet"
-                aria-label="Instagram"
+                aria-label="Green & Gleam Instagram"
                 className="hover:text-primary transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -47,7 +47,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
-                <span>(612) 460-8805‬</span>
+                <span>(612) 460-8805</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
@@ -55,13 +55,13 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
-                <span>Twin Cities Metro Area, MN</span>
+                <span>Saint Paul, MN</span>
               </li>
             </ul>
           </div>
 
           <div className="flex md:justify-end">
-            <RippleButton variant="secondary" onClick={scrollToTop}>
+            <RippleButton variant="secondary" onClick={scrollToTop} aria-label="Back to top">
               Back to Top
             </RippleButton>
           </div>

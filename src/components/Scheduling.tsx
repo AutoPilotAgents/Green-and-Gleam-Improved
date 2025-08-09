@@ -162,7 +162,7 @@ const Scheduling = () => {
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Schedule Your Service
+            Schedule Your Saint Paul Exterior Care Service
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Book your gutter cleaning or lawn mowing service directly with our online calendar
@@ -185,12 +185,12 @@ const Scheduling = () => {
                 <Droplets className="w-8 h-8 text-primary" />
               </div>
               <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
-                Gutter Cleaning
+                Gutter Cleaning Saint Paul
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-muted-foreground mb-6">
-                Schedule your professional gutter cleaning service
+                Schedule your professional gutter cleaning service in Saint Paul
               </p>
               <Button
                 className="w-full"
@@ -198,6 +198,7 @@ const Scheduling = () => {
                 data-cal-namespace="gutter-cleaning"
                 data-cal-link="green-and-gleam/gutter-cleaning"
                 data-cal-config='{"layout":"month_view"}'
+                aria-label="Book gutter cleaning service"
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Gutter Cleaning
@@ -215,12 +216,12 @@ const Scheduling = () => {
                 <Scissors className="w-8 h-8 text-primary" />
               </div>
               <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
-                Lawn Mowing
+                Lawn Mowing Service
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-muted-foreground mb-6">
-                Schedule your professional lawn mowing service
+                Schedule your professional lawn mowing service in Saint Paul
               </p>
               <Button
                 className="w-full"
@@ -228,6 +229,7 @@ const Scheduling = () => {
                 data-cal-namespace="lawn-mow"
                 data-cal-link="green-and-gleam/lawn-mow"
                 data-cal-config='{"layout":"month_view"}'
+                aria-label="Book lawn mowing service"
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Lawn Mowing

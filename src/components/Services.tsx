@@ -43,11 +43,10 @@ const Services = () => {
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Our Services
+            Professional Gutter Cleaning & Lawn Mowing Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Professional gutter cleaning and lawn maintenance services tailored to
-            your home's needs
+            Expert exterior care services tailored to Saint Paul and Twin Cities homes
           </p>
         </div>
 
@@ -71,7 +70,7 @@ const Services = () => {
                 <Droplets className="w-8 h-8 text-primary" />
               </div>
               <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
-                Gutter Cleaning
+                Gutter Cleaning Saint Paul
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
@@ -80,7 +79,7 @@ const Services = () => {
               </div>
               <p className="text-muted-foreground mb-6">
                 Thorough cleaning of gutters and downspouts to prevent water damage and
-                protect your home's foundation.
+                protect your home's foundation in Minnesota's climate.
               </p>
               <ul className="text-left space-y-2 mb-6">
                 <li className="flex items-center">
@@ -89,9 +88,21 @@ const Services = () => {
                 </li>
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
+                  <span>Flush all downspouts</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-primary-lime rounded-full mr-3"></div>
                   <span>Inspect for damage</span>
                 </li>
               </ul>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => scrollToSection("scheduling")}
+                aria-label="Book gutter cleaning service"
+              >
+                Book Service
+              </Button>
             </CardContent>
           </Card>
 
@@ -107,7 +118,7 @@ const Services = () => {
                 <Scissors className="w-8 h-8 text-primary" />
               </div>
               <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
-                Lawn Mowing
+                Lawn Mowing Service
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
@@ -116,7 +127,7 @@ const Services = () => {
               </div>
               <p className="text-muted-foreground mb-6">
                 Professional lawn maintenance to keep your yard looking pristine
-                throughout the growing season.
+                throughout Minnesota's growing season.
               </p>
               <ul className="text-left space-y-2 mb-6">
                 <li className="flex items-center">
@@ -132,6 +143,14 @@ const Services = () => {
                   <span>Blow grass clippings</span>
                 </li>
               </ul>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => scrollToSection("scheduling")}
+                aria-label="Book lawn mowing service"
+              >
+                Book Service
+              </Button>
             </CardContent>
           </Card>
 
@@ -147,7 +166,7 @@ const Services = () => {
                 <Leaf className="w-8 h-8 text-primary" />
               </div>
               <CardTitle className="text-xl text-foreground group-hover:text-primary-lime transition-colors duration-300">
-                Custom Job
+                Custom Jobs
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
@@ -177,6 +196,14 @@ const Services = () => {
                   <span>Specialized services</span>
                 </li>
               </ul>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => scrollToSection("contact")}
+                aria-label="Contact us for custom jobs"
+              >
+                Contact Us
+              </Button>
             </CardContent>
           </Card>
         </div>
@@ -187,6 +214,7 @@ const Services = () => {
             size="lg"
             className="text-lg px-8 py-4"
             onClick={() => scrollToSection("scheduling")}
+            aria-label="Book your exterior care service"
           >
             <Calendar className="w-5 h-5 mr-2" />
             Book Your Service

@@ -11,7 +11,7 @@ const Contact = () => {
   const hoursAnimation = useScrollAnimation({ threshold: 0.3 });
 
   const handleCopyPhone = async () => {
-    const phoneDisplay = "(612) 460-8805‬";
+    const phoneDisplay = "(612) 460-8805";
     await navigator.clipboard.writeText(phoneDisplay);
     toast({
       title: "Phone number copied",
@@ -45,11 +45,10 @@ const Contact = () => {
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-accent-foreground mb-4">
-            Ready to Get Started?
+            Contact Green & Gleam
           </h2>
           <p className="text-xl text-accent-foreground/80 max-w-2xl mx-auto">
-            Contact Green & Gleam today for your free estimate and experience the difference 
-            professional gutter service makes.
+            Get in touch with Saint Paul's trusted gutter cleaning and lawn mowing experts
           </p>
         </div>
         
@@ -72,9 +71,9 @@ const Contact = () => {
               <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Call Us Today</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-xl font-semibold text-primary mb-2">(612) 460-8805‬</p>
+              <p className="text-xl font-semibold text-primary mb-2">(612) 460-8805</p>
               <p className="text-muted-foreground">Speak with our experts</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyPhone}>
+              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyPhone} aria-label="Copy phone number">
                 Copy Number
               </RippleButton>
             </CardContent>
@@ -95,7 +94,7 @@ const Contact = () => {
             <CardContent className="text-center">
               <p className="text-lg font-semibold text-primary mb-2">info@greenandgleam.com</p>
               <p className="text-muted-foreground">Get a written estimate</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyEmail}>
+              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyEmail} aria-label="Copy email address">
                 Copy Email
               </RippleButton>
             </CardContent>
@@ -115,8 +114,8 @@ const Contact = () => {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-lg font-semibold text-primary mb-2">Twin Cities Metro Area, MN</p>
-              <p className="text-muted-foreground">And surrounding areas</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={scrollToScheduling}>
+              <p className="text-muted-foreground">Saint Paul, Minneapolis, and surrounding areas</p>
+              <RippleButton variant="outline" className="mt-4 w-full" onClick={scrollToScheduling} aria-label="Go to scheduling">
                 Go to Schedule
               </RippleButton>
             </CardContent>

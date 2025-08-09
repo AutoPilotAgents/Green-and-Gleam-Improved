@@ -26,17 +26,17 @@ const About = () => {
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Proudly Serving
-              <span className="text-primary block">Saint Paul, Minnesota</span>
+              About Green & Gleam
+              <span className="text-primary block">Saint Paul's Trusted Exterior Care Experts</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
-              We’re Teague and Sam, two 18-year-olds who treat your home like our own. Green and Gleam delivers reliable gutter cleaning and lawn mowing by being on time, tidy, and careful. We listen, work hard, and leave your place safer and looking its best. Local and easy to schedule. Let us handle the ladder and the lawn so you can relax and enjoy your home..
+              We're Teague and Sam, two 18-year-olds who treat your home like our own. Green and Gleam delivers reliable gutter cleaning and lawn mowing by being on time, tidy, and careful. We listen, work hard, and leave your place safer and looking its best. Local and easy to schedule. Let us handle the ladder and the lawn so you can relax and enjoy your home.
             </p>
             
             <p className="text-lg text-muted-foreground mb-8">
               Our eco-friendly approach combines professional expertise with environmental 
-              responsibility, ensuring your home stays protected while we protect our beautiful 
+              responsibility, ensuring your Saint Paul home stays protected while we protect our beautiful 
               Minnesota environment.
             </p>
             
@@ -82,8 +82,10 @@ const About = () => {
               <div className="flex items-center mb-4">
                 <img 
                   src="/placeholder.png" 
-                  alt="Team Member" 
+                  alt="Sam Putzer - Co-Founder of Green & Gleam" 
                   className="w-16 h-16 rounded-full object-cover mr-4"
+                  width="64"
+                  height="64"
                 />
                 <div>
                   <h3 className="text-xl font-bold text-foreground">Sam Putzer</h3>
@@ -91,7 +93,7 @@ const About = () => {
                 </div>
               </div>
               <p className="text-muted-foreground italic">
-                "I’m just getting started in the trades. I made Green & Gleam because I like working outside and doing hands-on work that actually makes a difference. You’ll find me mowing lawns, clearing gutters, or handling weed whacking. I take pride in showing up, working hard, and doing the job right. Outside of work, I’m into hiking and spending time with friends."
+                "I'm just getting started in the trades. I made Green & Gleam because I like working outside and doing hands-on work that actually makes a difference. You'll find me mowing lawns, clearing gutters, or handling weed whacking. I take pride in showing up, working hard, and doing the job right. Outside of work, I'm into hiking and spending time with friends."
               </p>
             </div>
             
@@ -99,8 +101,10 @@ const About = () => {
               <div className="flex items-center mb-4">
                 <img 
                   src="/placeholder2.png" 
-                  alt="Team Member" 
+                  alt="Teague Winsell - Co-Founder of Green & Gleam" 
                   className="w-16 h-16 rounded-full object-cover mr-4"
+                  width="64"
+                  height="64"
                 />
                 <div>
                   <h3 className="text-xl font-bold text-foreground">Teague Winsell</h3>

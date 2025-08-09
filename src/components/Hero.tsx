@@ -29,13 +29,12 @@ const Hero = () => {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Exterior Care
-            <span className="text-primary-lime block">Done Right</span>
+            Gutter Cleaning & Lawn Mowing in Saint Paul MN
           </h1>
           
           <p className="text-xl text-white/90 mb-8 max-w-2xl">
-            Pro level gutter cleaning and maintenance services in Saint Paul, Minnesota. 
-            Protecting your home with eco-friendly solutions and craftsmanship.
+            Professional exterior care services in Saint Paul and the Twin Cities metro area. 
+            Eco-friendly solutions with same-day service by local experts Sam & Teague.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -44,6 +43,7 @@ const Hero = () => {
               size="lg" 
               className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
               onClick={() => scrollToSection('scheduling')}
+              aria-label="Schedule your gutter cleaning or lawn mowing service"
             >
               Schedule Now
               <ArrowRight className="w-5 h-5" />
@@ -53,6 +53,7 @@ const Hero = () => {
               size="lg" 
               className="text-lg px-8 py-4 bg-white/10 border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
               onClick={() => scrollToSection('services')}
+              aria-label="View all our services"
             >
               View Services
             </Button>

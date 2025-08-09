@@ -18,8 +18,10 @@ const Header = () => {
         <div className="flex items-center space-x-2">
           <img
             src="/android-chrome-192x192.png"
-            alt="Green & Gleam Logo"
+            alt="Green & Gleam Logo - Professional Gutter Cleaning & Lawn Mowing Services"
             className="w-12 h-12 rounded-full"
+            width="48"
+            height="48"
           />
           <div>
             <h1 className="text-xl font-bold text-foreground">Green & Gleam</h1>
@@ -31,34 +33,36 @@ const Header = () => {
           <button
             onClick={() => scrollToSection("services")}
             className="text-foreground font-semibold hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+            aria-label="View our services"
           >
             Services
           </button>
           <button
             onClick={() => scrollToSection("about")}
             className="text-foreground font-semibold hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+            aria-label="Learn about our company"
           >
             About
           </button>
           <button
-            onClick={() => scrollToSection("contact")}
-            className="text-foreground font-semibold hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
-          >
-            Contact
-          </button>
-          <button
             onClick={() => scrollToSection("scheduling")}
             className="text-foreground font-semibold hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+            aria-label="Schedule your service"
           >
             Schedule
+          </button>
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="text-foreground font-semibold hover:text-primary transition-all duration-300 hover:scale-105 bg-transparent border-none cursor-pointer"
+            aria-label="Contact information"
+          >
+            Contact
           </button>
         </nav>
 
         <div className="flex items-center space-x-3">
           <div className="hidden sm:flex items-center space-x-1 text-sm text-muted-foreground">
-            {/* Keep location snippet as-is */}
             <span className="inline-flex items-center">
-              {/* Icon retained via CSS or elsewhere */}
               Saint Paul, MN
             </span>
           </div>
@@ -66,6 +70,7 @@ const Header = () => {
             variant="hero"
             size="sm"
             onClick={() => scrollToSection("scheduling")}
+            aria-label="Book your service now"
           >
             <CalendarCheck className="w-4 h-4" />
             Book Now
