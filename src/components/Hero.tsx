@@ -29,7 +29,9 @@ const Hero = () => {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Gutter Cleaning & Lawn Mowing in Saint Paul MN
+            Exterior Care
+            <br />
+            <span className="text-primary-lime">Done Right</span>
           </h1>
           
           <p className="text-xl text-white/90 mb-8 max-w-2xl">
