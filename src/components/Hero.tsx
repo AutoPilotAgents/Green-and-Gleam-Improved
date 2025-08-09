@@ -41,15 +41,12 @@ const Hero = () => {
             <Button 
               variant="hero" 
               size="lg" 
-              className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300 relative overflow-hidden group animate-pulse-glow"
+              className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
               onClick={() => scrollToSection('scheduling')}
               aria-label="Schedule your gutter cleaning or lawn mowing service"
             >
-              <span className="relative z-10 flex items-center">
-                Schedule Now
-                <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
+              Schedule Now
+              <ArrowRight className="w-5 h-5" />
             </Button>
             <Button 
               variant="outline" 
