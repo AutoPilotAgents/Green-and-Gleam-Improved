@@ -38,16 +38,19 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-              onClick={() => scrollToSection('scheduling')}
-              aria-label="Schedule your gutter cleaning or lawn mowing service"
-            >
-              Schedule Now
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+            <div className="relative">
+              <div className="absolute -inset-2 rounded-lg bg-primary-lime blur-lg opacity-70 animate-pulse"></div>
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300 relative z-10"
+                onClick={() => scrollToSection('scheduling')}
+                aria-label="Schedule your gutter cleaning or lawn mowing service"
+              >
+                Schedule Now
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </div>
             <Button 
               variant="outline" 
               size="lg" 
