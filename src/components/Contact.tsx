@@ -1,143 +1,208 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  User, 
+  MailIcon, 
+  MessageSquare,
+  Send
+} from "lucide-react";
 import { useScrollAnimation, scrollAnimations } from "@/hooks/useScrollAnimation";
-import RippleButton from "@/components/RippleButton";
+import { RippleButton } from "@/components/RippleButton";
 import { toast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const Contact = () => {
-  const headerAnimation = useScrollAnimation({ threshold: 0.2 });
-  const cardsAnimation = useScrollAnimation({ threshold: 0.1 });
-  const hoursAnimation = useScrollAnimation({ threshold: 0.3 });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  
+  const { ref: formRef } = useScrollAnimation(scrollAnimations.fadeInUp);
+  const { ref: infoRef } = useScrollAnimation(scrollAnimations.fadeInUp);
 
-  const handleCopyPhone = async () => {
-    const phoneDisplay = "(612) 460-8805";
-    await navigator.clipboard.writeText(phoneDisplay);
-    toast({
-      title: "Phone number copied",
-      description: `${phoneDisplay} has been copied to your clipboard.`,
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleCopyEmail = async () => {
-    const email = "info@greenandgleam.com";
-    await navigator.clipboard.writeText(email);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Form submission logic would go here
+    console.log("Form submitted:", formData);
+    
     toast({
-      title: "Email copied",
-      description: `${email} has been copied to your clipboard.`,
+      title: "Message Sent!",
+      description: "We'll get back to you soon.",
     });
-  };
-
-  const scrollToScheduling = () => {
-    const el = document.getElementById("scheduling");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      message: ""
+    });
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-accent">
+    <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div 
-          ref={headerAnimation.ref}
-          className={`text-center mb-16 ${scrollAnimations.fadeInUp} ${
-            headerAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
-          }`}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-accent-foreground mb-4">
-            Contact Green & Gleam
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-forest mb-4">
+            Get In Touch
           </h2>
-          <p className="text-xl text-accent-foreground/80 max-w-2xl mx-auto">
-            Get in touch with Saint Paul's trusted gutter cleaning and lawn mowing experts
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Have questions or ready to start your project? Reach out to our team today.
           </p>
         </div>
-        
-        <div 
-          ref={cardsAnimation.ref}
-          className={`grid lg:grid-cols-3 gap-8 mb-12 ${scrollAnimations.slideInUp} ${
-            cardsAnimation.isVisible ? scrollAnimations.slideInUpActive : scrollAnimations.slideInUpInitial
-          }`}
-        >
-          <Card 
-            className={`shadow-card border-border/50 hover:shadow-glow transition-all duration-500 hover:-translate-y-2 group ${scrollAnimations.scaleIn} ${
-              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
-            }`}
-            style={{ transitionDelay: '0ms' }}
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <div 
+            ref={formRef}
+            className="bg-white rounded-2xl p-8 shadow-lg"
           >
-            <CardHeader className="text-center">
-              <div className="flex justify-center mb-4 group-hover:animate-bounce-gentle">
-                <Phone className="w-8 h-8 text-primary" />
+            <h3 className="text-2xl font-bold text-primary-forest mb-6">
+              Send us a Message
+            </h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <Label htmlFor="name" className="text-gray-700 mb-2 block">
+                  Full Name
+                </Label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    className="pl-10 py-3"
+                    required
+                  />
+                </div>
               </div>
-              <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Call Us Today</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-xl font-semibold text-primary mb-2">(612) 460-8805</p>
-              <p className="text-muted-foreground">Speak with our experts</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyPhone} aria-label="Copy phone number">
-                Copy Number
+              
+              <div>
+                <Label htmlFor="email" className="text-gray-700 mb-2 block">
+                  Email Address
+                </Label>
+                <div className="relative">
+                  <MailIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your.email@example.com"
+                    className="pl-10 py-3"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <Label htmlFor="message" className="text-gray-700 mb-2 block">
+                  Your Message
+                </Label>
+                <div className="relative">
+                  <MessageSquare className="absolute left-3 top-4 text-gray-400 w-5 h-5" />
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell us about your project..."
+                    className="pl-10 py-3 min-h-[150px]"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <RippleButton
+                type="submit"
+                variant="hero"
+                size="lg"
+                className="w-full text-lg py-3"
+              >
+                <Send className="mr-2 h-5 w-5" />
+                Send Message
               </RippleButton>
-            </CardContent>
-          </Card>
-          
-          <Card 
-            className={`shadow-card border-border/50 hover:shadow-glow transition-all duration-500 hover:-translate-y-2 group ${scrollAnimations.scaleIn} ${
-              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
-            }`}
-            style={{ transitionDelay: '150ms' }}
+            </form>
+          </div>
+
+          {/* Contact Information */}
+          <div 
+            ref={infoRef}
+            className="bg-gradient-to-br from-primary-forest to-primary-emerald rounded-2xl p-8 text-white"
           >
-            <CardHeader className="text-center">
-              <div className="flex justify-center mb-4 group-hover:animate-bounce-gentle">
-                <Mail className="w-8 h-8 text-primary" />
+            <h3 className="text-2xl font-bold mb-6">
+              Contact Information
+            </h3>
+            
+            <div className="space-y-6 mb-8">
+              <div className="flex items-start">
+                <div className="bg-white/20 p-3 rounded-full mr-4">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">Phone</h4>
+                  <p className="text-white/90">(555) 123-4567</p>
+                </div>
               </div>
-              <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Email Us</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-lg font-semibold text-primary mb-2">info@greenandgleam.com</p>
-              <p className="text-muted-foreground">Get a written estimate</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={handleCopyEmail} aria-label="Copy email address">
-                Copy Email
-              </RippleButton>
-            </CardContent>
-          </Card>
-          
-          <Card 
-            className={`shadow-card border-border/50 hover:shadow-glow transition-all duration-500 hover:-translate-y-2 group ${scrollAnimations.scaleIn} ${
-              cardsAnimation.isVisible ? scrollAnimations.scaleInActive : scrollAnimations.scaleInInitial
-            }`}
-            style={{ transitionDelay: '300ms' }}
-          >
-            <CardHeader className="text-center">
-              <div className="flex justify-center mb-4 group-hover:animate-bounce-gentle">
-                <MapPin className="w-8 h-8 text-primary" />
+              
+              <div className="flex items-start">
+                <div className="bg-white/20 p-3 rounded-full mr-4">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">Email</h4>
+                  <p className="text-white/90">info@greenandgleam.com</p>
+                </div>
               </div>
-              <CardTitle className="text-foreground group-hover:text-primary-lime transition-colors duration-300">Service Area</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-lg font-semibold text-primary mb-2">Twin Cities Metro Area, MN</p>
-              <p className="text-muted-foreground">Saint Paul, Minneapolis, and surrounding areas</p>
-              <RippleButton variant="outline" className="mt-4 w-full" onClick={scrollToScheduling} aria-label="Go to scheduling">
-                Go to Schedule
-              </RippleButton>
-            </CardContent>
-          </Card>
-        </div>
-        
-        <Card 
-          ref={hoursAnimation.ref}
-          className={`shadow-primary border-border/50 bg-card/50 backdrop-blur-sm ${scrollAnimations.fadeInUp} ${
-            hoursAnimation.isVisible ? scrollAnimations.fadeInUpActive : scrollAnimations.fadeInUpInitial
-          }`}
-        >
-          <CardContent className="p-8">
-            <div className="flex items-center justify-center space-x-4 text-muted-foreground">
-              <Clock className="w-5 h-5" />
-              <span className="text-lg">
-                <strong className="text-foreground">Business Hours: </strong> 
-                 Monday - Sunday: 9:00 AM - 8:00 PM
-              </span>
+              
+              <div className="flex items-start">
+                <div className="bg-white/20 p-3 rounded-full mr-4">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">Office</h4>
+                  <p className="text-white/90">123 Garden Lane<br />Greenwood, CA 90210</p>
+                </div>
+              </div>
             </div>
-          </CardContent>
-        </Card>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <h4 className="font-semibold text-lg mb-3">Business Hours</h4>
+              <ul className="space-y-2 text-white/90">
+                <li className="flex justify-between">
+                  <span>Monday-Friday</span>
+                  <span>8:00 AM - 6:00 PM</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Saturday</span>
+                  <span>9:00 AM - 4:00 PM</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Sunday</span>
+                  <span>Closed</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

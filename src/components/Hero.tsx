@@ -1,72 +1,64 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Clock, Star } from "lucide-react";
-import heroImage from "@/assets/hero-gutter-cleaning.jpg";
+import { Calendar, Play } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-hero">
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      ></div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary-forest to-primary-emerald py-20 md:py-32">
+      {/* Background Elements */}
+      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-primary-lime/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent-mint/10 rounded-full blur-3xl"></div>
       
-      <div className="container mx-auto px-4 py-20 relative z-20">
-        <div className="max-w-3xl">
-          <div className="flex items-center space-x-2 mb-6">
-            <Shield className="w-6 h-6 text-primary-lime" />
-            <span className="text-primary-lime font-semibold">Trusted Local Experts</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Gutter Cleaning & Lawn Mowing in Saint Paul MN
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Transform Your Outdoor Space Into a <span className="text-accent-mint">Green Paradise</span>
           </h1>
-          
-          <p className="text-xl text-white/90 mb-8 max-w-2xl">
-            Professional exterior care services in Saint Paul and the Twin Cities metro area. 
-            Eco-friendly solutions with same-day service by local experts Sam & Teague.
+          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            Professional landscaping and garden design services that bring your vision to life with sustainable, beautiful solutions.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
             <Button 
               variant="hero" 
               size="lg" 
               className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-              onClick={() => scrollToSection('scheduling')}
-              aria-label="Schedule your gutter cleaning or lawn mowing service"
+              orbitingLight={true}
+              onClick={() => navigate('/contact')}
             >
+              <Calendar className="mr-2 h-5 w-5" />
               Schedule Now
-              <ArrowRight className="w-5 h-5" />
             </Button>
             <Button 
-              variant="outline" 
+              variant="hero-secondary" 
               size="lg" 
-              className="text-lg px-8 py-4 bg-white/10 border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
-              onClick={() => scrollToSection('services')}
-              aria-label="View all our services"
+              className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
+              onClick={() => {
+                // Scroll to services section
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
-              View Services
+              <Play className="mr-2 h-5 w-5" />
+              View Our Work
             </Button>
           </div>
           
-          <div className="flex items-center space-x-8 text-white/90">
-            <div className="flex items-center space-x-2">
-              <Clock className="w-5 h-5 text-primary-lime" />
-              <span>Same Day Service</span>
+          <div className="flex flex-wrap justify-center gap-8 text-white/80">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white">15+</div>
+              <div className="text-sm">Years Experience</div>
             </div>
-            <div className="flex items-center space-x-2">
-              <Star className="w-5 h-5 text-primary-lime" />
-              <span>5-Star Rated</span>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white">500+</div>
+              <div className="text-sm">Projects Completed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white">98%</div>
+              <div className="text-sm">Client Satisfaction</div>
             </div>
           </div>
         </div>
