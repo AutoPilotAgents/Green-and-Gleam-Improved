@@ -162,7 +162,7 @@ const Scheduling = () => {
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Schedule Your Saint Paul Exterior Care Service
+            Easily Schedule With 2 Clicks
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Book your gutter cleaning or lawn mowing service directly with our online calendar
