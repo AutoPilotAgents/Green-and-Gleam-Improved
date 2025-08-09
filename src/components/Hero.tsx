@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, Star } from "lucide-react";
 import heroImage from "@/assets/hero-gutter-cleaning.jpg";
+import { useState } from "react";
 
 const Hero = () => {
+  const [ripples, setRipples] = useState<{x: number, y: number, id: number}[]>([]);
+  const [nextId, setNextId] = useState(0);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -11,6 +15,22 @@ const Hero = () => {
         block: 'start'
       });
     }
+  };
+
+  const createRipple = (e: React.MouseEvent) => {
+    const button = e.currentTarget;
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const newRipple = { x, y, id: nextId };
+    setRipples([...ripples, newRipple]);
+    setNextId(nextId + 1);
+    
+    // Remove ripple after animation completes
+    setTimeout(() => {
+      setRipples(prev => prev.filter(ripple => ripple.id !== newRipple.id));
+    }, 600);
   };
 
   return (
@@ -41,12 +61,28 @@ const Hero = () => {
             <Button 
               variant="hero" 
               size="lg" 
-              className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-              onClick={() => scrollToSection('scheduling')}
+              className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300 relative overflow-hidden"
+              onClick={(e) => {
+                createRipple(e);
+                scrollToSection('scheduling');
+              }}
               aria-label="Schedule your gutter cleaning or lawn mowing service"
             >
+              {/* Ripple effect elements */}
+              {ripples.map(ripple => (
+                <span
+                  key={ripple.id}
+                  className="absolute rounded-full bg-white/30 animate-ripple"
+                  style={{
+                    left: ripple.x,
+                    top: ripple.y,
+                    width: 0,
+                    height: 0,
+                  }}
+                />
+              ))}
               Schedule Now
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button 
               variant="outline" 
