@@ -125,12 +125,10 @@ export default {
 				},
 				'pulse-glow': {
 					'0%, 100%': {
-						boxShadow: '0 0 15px hsl(var(--primary-lime) / 0.4)',
-						opacity: '1'
+						boxShadow: '0 0 20px hsl(var(--primary-lime) / 0.4)'
 					},
 					'50%': {
-						boxShadow: '0 0 30px hsl(var(--primary-lime) / 0.8)',
-						opacity: '0.7'
+						boxShadow: '0 0 40px hsl(var(--primary-lime) / 0.8)'
 					}
 				}
 			},
