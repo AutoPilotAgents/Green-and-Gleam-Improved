@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Clock, Star, CalendarCheck } from "lucide-react";
+import { ArrowRight, Shield, Clock, Star } from "lucide-react";
 import heroImage from "@/assets/hero-gutter-cleaning.jpg";
 
 const Hero = () => {
@@ -41,16 +41,12 @@ const Hero = () => {
             <Button 
               variant="hero" 
               size="lg" 
-              className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300 relative"
+              className="text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
               onClick={() => scrollToSection('scheduling')}
-              aria-label="Schedule your service now"
+              aria-label="Schedule your gutter cleaning or lawn mowing service"
             >
-              {/* Pulsing ring effect */}
-              <span className="absolute -inset-1 rounded-full bg-primary-lime/50 animate-ping opacity-75"></span>
-              <span className="relative flex items-center">
-                <CalendarCheck className="w-5 h-5 mr-2" />
-                Schedule Now
-              </span>
+              Schedule Now
+              <ArrowRight className="w-5 h-5" />
             </Button>
             <Button 
               variant="outline" 
